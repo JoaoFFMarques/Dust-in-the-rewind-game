@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private List<Vector3> m_RecordedPositions;
-
+    private Stack<Vector3> m_RecordedPositions;
 
     private Rigidbody m_PlayerRB;
     private Animator m_PlayerAnim;
     private Vector3 m_Movement;
+
     public float m_MoveSpeedy;
 
     public bool m_IsRewind;
@@ -22,16 +22,16 @@ public class PlayerController : MonoBehaviour
         m_PlayerAnim = GetComponent<Animator>();
         m_PlayerRB = GetComponent<Rigidbody>();
 
-        m_RecordedPositions = new List<Vector3>();
+        m_RecordedPositions = new Stack<Vector3>();
         Record();
     }
 
     void Update()
     {
-        if((transform.position.x> m_RecordedPositions[m_RecordedPositions.Count-1].x+1 ||
-            transform.position.x < m_RecordedPositions[m_RecordedPositions.Count-1].x - 1 ||
-            transform.position.y > m_RecordedPositions[m_RecordedPositions.Count-1].y + 1 ||
-            transform.position.y < m_RecordedPositions[m_RecordedPositions.Count-1].y - 1) && !m_IsRewind)
+        if((transform.position.x> m_RecordedPositions.Peek().x + 1 ||
+            transform.position.x < m_RecordedPositions.Peek().x - 1 ||
+            transform.position.y > m_RecordedPositions.Peek().y + 1 ||
+            transform.position.y < m_RecordedPositions.Peek().y - 1) && !m_IsRewind)
         {
             Record();
         }
@@ -72,19 +72,19 @@ public class PlayerController : MonoBehaviour
 
     public void Record()
     {
-        m_RecordedPositions.Add(transform.position);
+        m_RecordedPositions.Push(transform.position);
     }
 
     public void Rewind()
-    {
-        
+    {        
         Time.timeScale = 4;
-        transform.position = Vector3.MoveTowards(transform.position, m_RecordedPositions[m_RecordedPositions.Count - 1], 1 * Time.deltaTime);
+        
+        transform.position = Vector3.MoveTowards(transform.position, m_RecordedPositions.Peek(), 1 * Time.deltaTime);
        
-        if(transform.position == m_RecordedPositions[m_RecordedPositions.Count - 1])
-            m_RecordedPositions.RemoveAt(m_RecordedPositions.Count - 1);
+        if(transform.position == m_RecordedPositions.Peek())
+            m_RecordedPositions.Pop();
 
-        if(m_RecordedPositions.Count - 1 == 0)
+        if(m_RecordedPositions.Count -1 == 0)
         {
             m_IsRewind = false;
             Time.timeScale = 1;

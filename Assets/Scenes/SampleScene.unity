@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 14685291}
   - component: {fileID: 14685290}
   m_Layer: 0
-  m_Name: Rewind Block
+  m_Name: RewindBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28280
+  m_Name: pb_Mesh18530
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 53870065}
   m_Layer: 0
   m_Name: Wall_Up
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,8 +430,8 @@ Transform:
   m_Father: {fileID: 1851841201}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!64 &53870065
-MeshCollider:
+--- !u!65 &53870065
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -440,10 +440,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1423034336}
+  serializedVersion: 2
+  m_Size: {x: 1.0000026, y: 43, z: 1.0000002}
+  m_Center: {x: 0.50000715, y: 4.499999, z: -0.5000001}
 --- !u!114 &53870066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,14 +802,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91976165}
-  m_LocalRotation: {x: -0.33653015, y: -0, z: -0, w: 0.94167274}
-  m_LocalPosition: {x: 0, y: 1.7765145, z: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -39.331, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &91976169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,6 +822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91670c5851bea941905e680465d5f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MoveCount: 0
+  m_IsRewind: 0
   m_MoveSpeedy: 5
 --- !u!95 &91976170
 Animator:
@@ -954,7 +955,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28230
+  m_Name: pb_Mesh18480
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1127,7 +1128,7 @@ GameObject:
   - component: {fileID: 947090324}
   m_Layer: 0
   m_Name: Wall_Left
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1146,8 +1147,8 @@ Transform:
   m_Father: {fileID: 1851841201}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &947090324
-MeshCollider:
+--- !u!65 &947090324
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1156,10 +1157,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 878263880}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 26.980013, z: 1.0000005}
+  m_Center: {x: 0.5, y: 6.5100055, z: -0.50000024}
 --- !u!114 &947090325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,7 +1513,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28256
+  m_Name: pb_Mesh18506
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1677,7 +1677,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28196
+  m_Name: pb_Mesh18446
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1841,7 +1841,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28268
+  m_Name: pb_Mesh18518
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2305,7 +2305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851841196}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9, y: -10.19, z: 0.5}
+  m_LocalPosition: {x: -1, y: -18, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1997456659}
@@ -2330,7 +2330,7 @@ GameObject:
   - component: {fileID: 1997456660}
   m_Layer: 0
   m_Name: Wall_Down
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2349,8 +2349,8 @@ Transform:
   m_Father: {fileID: 1851841201}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!64 &1997456660
-MeshCollider:
+--- !u!65 &1997456660
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2359,10 +2359,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1736431252}
+  serializedVersion: 2
+  m_Size: {x: 1.0000026, y: 43, z: 1.0000002}
+  m_Center: {x: 0.5000005, y: 4.499999, z: -0.5000001}
 --- !u!114 &1997456661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2642,7 +2641,7 @@ GameObject:
   - component: {fileID: 2042064642}
   m_Layer: 0
   m_Name: Wall_Right
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2661,8 +2660,8 @@ Transform:
   m_Father: {fileID: 1851841201}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &2042064642
-MeshCollider:
+--- !u!65 &2042064642
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2671,10 +2670,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 42761613}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 26.980013, z: 1.0000005}
+  m_Center: {x: 0.5, y: 6.5100055, z: -0.50000024}
 --- !u!114 &2042064643
 MonoBehaviour:
   m_ObjectHideFlags: 0

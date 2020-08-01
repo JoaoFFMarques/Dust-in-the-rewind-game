@@ -4,7 +4,15 @@ Game for Brackeys GameJam 2020.2
 
 ## Game
 
+Text ...
 
+## How to Play
+
+Text ...
+
+## Download
+
+- Link: 
 
 ## Screens flow
 
@@ -20,9 +28,10 @@ Game for Brackeys GameJam 2020.2
 - João Fernando Ferreira Marques
 
 ## Tools
+- Piskel
 - Unity 2020.1.0f1
 
-## Licença
+## License
 
     Copyright 2020 Dust in the Rewind Game
     
@@ -43,4 +52,3 @@ Game for Brackeys GameJam 2020.2
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
-

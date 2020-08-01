@@ -13,11 +13,11 @@ Game for Brackeys GameJam 2020.2
 </p>
 
 ## Team
-- Bruna
-- João
-- Kamila
+- Bruna Barbosa Guimarães
+- Kamila Freitas da Silva
 - Kleber de Oliveira Andrade
-- Vinicius
+- Gabriel Nalin Gibin
+- João Fernando Ferreira Marques
 
 ## Tools
 - Unity 2020.1.0f1

@@ -1,0 +1,33 @@
+{
+	"functions" : 
+	[
+		{
+			"title": "2D Art",
+			"people": [ "xx", "xx" ]
+		},
+		{
+			"title": "Character Art",
+			"people": [ "Bruna Guimarães", "xxx" ]
+		},
+		{
+			"title": "Level Art",
+			"people": [ "xxx", "xxx" ]
+		},
+		{
+			"title": "Programmers",
+			"people": [ "João (Jota)", "Kleber Andrade", "Vinicius" ]
+		},
+		{
+			"title": "UI/UX",
+			"people": [ "Kamila", "Kleber Andrade" ]
+		},
+		{
+			"title": "Music",
+			"people": [ "xxx", "xxx" ]
+		},
+		{
+			"title": "Sound Effects",
+			"people": [ "xxx", "xxx" ]
+		}
+	]
+}

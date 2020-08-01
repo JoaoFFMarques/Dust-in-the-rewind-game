@@ -5,8 +5,16 @@ using UnityEngine.UI;
 
 public class CreditsManager : MonoBehaviour
 {
+    [Header("UI")]
     public TextAsset m_TextFile;
     public Text m_TextUI;
+
+    [Header("Settings")]
+    public float m_FunctionFontSize = 40.0f;
+    public float m_NameFontSize = 24.0f;
+    public float m_Speed = 20.0f;
+
+    [Header("Debug")]
     public Credits m_Credits;
 
     private void Start() 
@@ -17,14 +25,14 @@ public class CreditsManager : MonoBehaviour
 
         foreach (Function function in m_Credits.functions)
         {
-            sb.Append($"<b><size=40>{function.title}</size></b>");
-            sb.Append($"<size=40>\n</size>");
+            sb.Append($"<b><size={m_FunctionFontSize}>{function.title}</size></b>");
+            sb.Append($"<size={m_FunctionFontSize}>\n</size>");
             foreach (string name in function.people)
             {
-                sb.Append($"<b><size=24>{name}</size></b>");
-                sb.Append($"<size=24>\n</size>");
+                sb.Append($"<b><size={m_NameFontSize}>{name}</size></b>");
+                sb.Append($"<size={m_NameFontSize}>\n</size>");
             }
-            sb.Append($"<size=40>\n</size>");
+            sb.Append($"<size={m_FunctionFontSize}>\n</size>");
         }
 
         m_TextUI.text = sb.ToString();
@@ -33,7 +41,7 @@ public class CreditsManager : MonoBehaviour
 
     public void Update()
     {
-        m_TextUI.transform.Translate(Vector3.up * 50.0f * Time.deltaTime);
+        m_TextUI.transform.Translate(Vector3.up * m_Speed * Time.deltaTime);
     }
 }
 

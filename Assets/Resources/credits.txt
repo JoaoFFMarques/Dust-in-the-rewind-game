@@ -3,31 +3,31 @@
 	[
 		{
 			"title": "2D Art",
-			"people": [ "xx", "xx" ]
+			"people": [ "Bruna Barbosa Guimarães", "Kamila Freitas da Silva", "Gabriel Nalin Gibin" ]
 		},
 		{
 			"title": "Character Art",
-			"people": [ "Bruna Guimarães", "xxx" ]
+			"people": [ "Bruna Barbosa Guimarães" ]
 		},
 		{
 			"title": "Level Art",
-			"people": [ "xxx", "xxx" ]
+			"people": [ "Gabriel Nalin Gibin" ]
 		},
 		{
 			"title": "Programmers",
-			"people": [ "João (Jota)", "Kleber Andrade", "Vinicius" ]
+			"people": [ "João Fernando Ferreira Marques", "Kleber de Oliveira Andrade" ]
 		},
 		{
 			"title": "UI/UX",
-			"people": [ "Kamila", "Kleber Andrade" ]
+			"people": [ "Kamila Freitas da Silva", "Kleber de Oliveira Andrade" ]
 		},
 		{
-			"title": "Music",
-			"people": [ "xxx", "xxx" ]
+			"title": "Testers",
+			"people": [ "Vinicius Guimarães" ]
 		},
 		{
-			"title": "Sound Effects",
-			"people": [ "xxx", "xxx" ]
+			"title": "Tools",
+			"people": [ "Piskel", "Unity 2020.1.0f1" ]
 		}
 	]
 }

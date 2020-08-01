@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody m_PlayerRB;
+    private Animator m_PlayerAnim;
     private Vector3 m_Movement;
     public float m_MoveSpeedy;
 
@@ -13,14 +14,16 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        m_PlayerAnim = GetComponent<Animator>();
         m_PlayerRB = GetComponent<Rigidbody>();       
     }
 
     void Update()
     {
-       
-           
-        
+
+
+        m_PlayerAnim.SetBool("IsWalking", m_Movement.x != 0 || m_Movement.y != 0);
+
     }
    
     private void FixedUpdate()

@@ -274,8 +274,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 92
+    m_Font: {fileID: 12800000, guid: 7e098102a0f8e284d867bee161408b0e, type: 3}
+    m_FontSize: 96
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -392,8 +392,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TextFile: {fileID: 4900000, guid: cb2993411b3f6c9448a8543d1859e249, type: 3}
   m_TextUI: {fileID: 434122113}
-  m_FunctionFontSize: 42
-  m_NameFontSize: 32
+  m_FunctionFontSize: 62
+  m_NameFontSize: 44
   m_Speed: 50
   m_Credits:
     functions: []
@@ -526,11 +526,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 7e098102a0f8e284d867bee161408b0e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -979,12 +979,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 7e098102a0f8e284d867bee161408b0e, type: 3}
+    m_FontSize: 42
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 42
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1

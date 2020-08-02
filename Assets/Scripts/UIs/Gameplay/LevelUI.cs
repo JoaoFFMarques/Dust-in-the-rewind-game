@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeUI : MonoBehaviour
+public class LevelUI : MonoBehaviour
 {
     public int m_Value;
     public string m_Mask = "00";

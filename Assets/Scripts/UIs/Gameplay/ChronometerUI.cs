@@ -10,7 +10,7 @@ public class ChronometerUI : MonoBehaviour
     public bool m_PlayOnAwake = false;
     private bool m_Playing;
 
-    private void Start()
+    private void OnEnable()
     {
         m_Playing = m_PlayOnAwake;
         m_Text = GetComponent<Text>();

@@ -1,0 +1,7 @@
+{
+	"phrases" : 
+	[
+		"you cannot give up just yet...",
+		"thank you for playing"
+	]
+}

@@ -29,7 +29,7 @@ public class CreditsManager : MonoBehaviour
             sb.Append($"<size={m_FunctionFontSize}>\n</size>");
             foreach (string name in function.people)
             {
-                sb.Append($"<b><size={m_NameFontSize}>{name}</size></b>");
+                sb.Append($"<size={m_NameFontSize}>{name}</size>");
                 sb.Append($"<size={m_NameFontSize}>\n</size>");
             }
             sb.Append($"<size={m_FunctionFontSize}>\n</size>");

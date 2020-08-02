@@ -73,6 +73,7 @@ public class MoveUI : MonoBehaviour, BehaviorUI
         }
 
         m_ElapsedTime += Time.deltaTime;
+        //m_ElapsedTime += Time.unscaledDeltaTime;
     }
 
     private Vector2 Lerp(Vector2 from, Vector2 to, float time, out bool completed)

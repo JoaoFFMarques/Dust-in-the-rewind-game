@@ -1,0 +1,12 @@
+Fase:1
+File:tileset_01.png
+Tile:32
+Story:Início da jornada, chegue até a luz
+Time:60
+Moves:8
+Level:13,5
+#############
+#...........#
+#.P.......@.#
+#...........#
+#############

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Pos;
 
     private bool m_IsMoving;
-    private bool m_IsLookingLeft;
+    private bool m_IsLookingLeft=true;
 
     private bool m_IsTouchUp;
     private bool m_IsTouchDown;
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         m_PlayerSR = GetComponent<SpriteRenderer>();
 
         m_RecordedPositions = new Stack<Vector3>();
-        Record();
     }
     void Update()
     {
@@ -59,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Wall") && !m_IsRewind)
         {
             m_IsMoving = false;
+            Record();
             m_Movement.x = 0;
             m_Movement.y = 0;
         }
@@ -119,10 +119,8 @@ public class PlayerController : MonoBehaviour
         m_RecordedPositions.Push(transform.position);
     }
     public void Rewind()
-    {        
-        Time.timeScale = 4;
-
-        transform.position = Vector3.MoveTowards(transform.position, m_RecordedPositions.Peek(), 1 * Time.deltaTime);
+    {       
+        transform.position = Vector3.MoveTowards(transform.position, m_RecordedPositions.Peek(), 3 * Time.deltaTime);
        
         if(transform.position == m_RecordedPositions.Peek())
             m_RecordedPositions.Pop();
@@ -130,7 +128,6 @@ public class PlayerController : MonoBehaviour
         if(m_RecordedPositions.Count == 0)
         {
             m_IsRewind = false;
-            Time.timeScale = 1;
             m_IsMoving = false;
             m_Movement.x = 0;
             m_Movement.y = 0;

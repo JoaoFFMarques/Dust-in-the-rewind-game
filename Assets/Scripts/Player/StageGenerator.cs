@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class StageGenerator : MonoBehaviour
 {
@@ -24,7 +22,7 @@ public class StageGenerator : MonoBehaviour
         string level = "Level/"+m_CurrentLevel.ToString();
         m_Level = Resources.Load<TextAsset>(level);
         LoadLevel();
-
+        gameObject.GetComponent<PlayerController>().Record();
     }
     private void LoadLevel()
     {
@@ -33,7 +31,7 @@ public class StageGenerator : MonoBehaviour
         int collums=0;
         int rows=0;
         GameObject[,] ground;
-        GameObject wall;
+        GameObject build;
         int l= 0;
 
         foreach(string obj in lines)
@@ -62,13 +60,31 @@ public class StageGenerator : MonoBehaviour
                 char[] construct = obj.ToCharArray();
                 for(int i=0; i < collums; i++)
                 {
-                    if(construct[i] == '#')
-                        wall = Instantiate(m_Wall, new Vector3(i,l, 0), Quaternion.identity);
-                    else if(construct[i] == '@')
-                        wall = Instantiate(m_RewindBlock, new Vector3(i, l, 0), Quaternion.identity);
-                    else if(construct[i] == 'P')
-                        transform.position = new Vector3(i, l, 0);
-                    
+
+                    switch(construct[i])
+                    {
+                        case '#':
+                            build = Instantiate(m_Wall, new Vector3(i, l, 0), Quaternion.identity);
+                            break;
+                        case '@':
+                            build = Instantiate(m_RewindBlock, new Vector3(i, l, 0), Quaternion.identity);
+                            break;
+                        case 'S':
+                            build = Instantiate(m_Slime, new Vector3(i, l, 0), Quaternion.identity);
+                            break;
+                        case 'M':
+                            build = Instantiate(m_Bat, new Vector3(i, l, 0), Quaternion.identity);
+                            break;
+                        case 'A':
+                            build = Instantiate(m_Spider, new Vector3(i, l, 0), Quaternion.identity);
+                            break;
+                        case 'E':
+                            build = Instantiate(m_Skeleton, new Vector3(i, l, 0), Quaternion.identity);
+                            break;
+                        case 'P':
+                            transform.position = new Vector3(i, l, 0);
+                            break;
+                    }                    
                 }
                 l++;
             }            
@@ -83,7 +99,5 @@ public class StageGenerator : MonoBehaviour
                 ground[i, j] = Instantiate(m_Ground, new Vector3(j, i, 1), Quaternion.identity);
             }
         }
-        
-
     }
 }

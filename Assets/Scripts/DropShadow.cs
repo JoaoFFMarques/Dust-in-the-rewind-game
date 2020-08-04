@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class DropShadow : MonoBehaviour
 {
     public Vector2 m_ShadowOffset;
     public Material m_ShadowMaterial;
 
     SpriteRenderer m_SpriteRenderer;
+    SpriteRenderer m_ShadowSpriteRenderer;
     GameObject m_ShadowGameobject;
 
     void Start()
@@ -15,18 +15,21 @@ public class DropShadow : MonoBehaviour
 
         m_ShadowGameobject = new GameObject("Shadow");
 
-        SpriteRenderer shadowSpriteRenderer = m_ShadowGameobject.AddComponent<SpriteRenderer>();
+        m_ShadowSpriteRenderer = m_ShadowGameobject.AddComponent<SpriteRenderer>();
 
-        shadowSpriteRenderer.sprite = m_SpriteRenderer.sprite;
-        shadowSpriteRenderer.material = m_ShadowMaterial;
+        m_ShadowSpriteRenderer.sprite = m_SpriteRenderer.sprite;
+        m_ShadowSpriteRenderer.material = m_ShadowMaterial;
 
-        shadowSpriteRenderer.sortingLayerName = m_SpriteRenderer.sortingLayerName;
-        shadowSpriteRenderer.sortingOrder = m_SpriteRenderer.sortingOrder - 1;
+        m_ShadowSpriteRenderer.sortingLayerName = m_SpriteRenderer.sortingLayerName;
+        m_ShadowSpriteRenderer.sortingOrder = m_SpriteRenderer.sortingOrder - 1;
+        m_ShadowGameobject.transform.SetParent(gameObject.transform);
     }
 
     void LateUpdate()
     {
-        m_ShadowGameobject.transform.localPosition = transform.localPosition + (Vector3)ShadowOffset;
-        m_ShadowGameobject.transform.localRotation = transform.localRotation;
+        m_ShadowSpriteRenderer.sprite = m_SpriteRenderer.sprite;
+        m_ShadowSpriteRenderer.material = m_ShadowMaterial;
+        m_ShadowGameobject.transform.position = transform.position + (Vector3)m_ShadowOffset;
+        m_ShadowGameobject.transform.rotation = transform.rotation;
     }
 }

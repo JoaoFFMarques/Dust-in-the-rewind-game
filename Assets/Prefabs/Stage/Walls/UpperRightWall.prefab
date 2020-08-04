@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5607903351238758424}
   - component: {fileID: 1478834579097955155}
   - component: {fileID: 4541036284979906649}
+  - component: {fileID: 634209022168545995}
   m_Layer: 8
   m_Name: UpperRightWall
   m_TagString: Wall
@@ -96,3 +97,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7378087, y: 0.8179227, z: 1}
   m_Center: {x: -0.13109565, y: -0.091038644, z: -0.4999888}
+--- !u!114 &634209022168545995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801107554813360759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b608406dc089da4409e1775108c0c09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowOffset: {x: 0.1, y: 0.1}
+  m_ShadowMaterial: {fileID: 2100000, guid: be8deb9716118e34daf1c7088063d325, type: 2}

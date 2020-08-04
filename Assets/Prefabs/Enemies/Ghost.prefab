@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 8067696741997270281}
   - component: {fileID: 217212003076207959}
   - component: {fileID: 7003785252208033220}
+  - component: {fileID: 6695888122934240089}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Harm
@@ -290,3 +291,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6695888122934240089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648514577377568052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b608406dc089da4409e1775108c0c09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowOffset: {x: 0.1, y: 0.1}
+  m_ShadowMaterial: {fileID: 2100000, guid: be8deb9716118e34daf1c7088063d325, type: 2}

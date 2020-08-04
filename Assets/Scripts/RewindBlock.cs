@@ -6,7 +6,7 @@ public class RewindBlock : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().m_IsRewind=true;
+            other.GetComponent<PlayerController>().m_IsRewind = true;            
         }
     }
 

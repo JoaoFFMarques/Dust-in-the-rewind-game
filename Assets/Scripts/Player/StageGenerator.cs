@@ -2,27 +2,55 @@
 
 public class StageGenerator : MonoBehaviour
 {
+    [Header("Player")]
+    public GameObject m_Player;
+    
+    [Header("Ground")]
     public GameObject m_Ground;
+    public GameObject m_LeftGround;
+    public GameObject m_RightGround;
+    public GameObject m_UpperGround;
+    public GameObject m_LowerGround;
+    public GameObject m_UpperLeftGround;
+    public GameObject m_UpperRightGround;
+    public GameObject m_LowerLeftGround;
+    public GameObject m_LowerRightGround;
+    
+    [Header("Wall")]
     public GameObject m_Wall;
+    public GameObject m_LeftWall;
+    public GameObject m_RightWall;
+    public GameObject m_UpperLeftWall;
+    public GameObject m_UpperRightWall;
+    public GameObject m_LowerLeftWall;
+    public GameObject m_LowerRightWall;
+
+    [Header("Obstacle")]
     public GameObject m_RewindBlock;
+
+    [Header("Enemies")]
     public GameObject m_Pumpkin;
+    public GameObject m_Slime;
+    public GameObject m_Bat;
     public GameObject m_Spider;
     public GameObject m_Skeleton;
-    public GameObject m_Bat;
-    public GameObject m_Slime;
-    public static int m_CurrentLevel=0;
+    public GameObject m_Ghost;    
+    
+    [Header("Level Infos")]
     public float m_Time;
     public int m_Moves;
     public string m_Story;
 
     public TextAsset m_Level;
+
+    public static int m_CurrentLevel = 0;
+
     void Start()
     {
         m_CurrentLevel++;
         string level = "Level/"+m_CurrentLevel.ToString();
         m_Level = Resources.Load<TextAsset>(level);
         LoadLevel();
-        gameObject.GetComponent<PlayerController>().Record();
     }
     private void LoadLevel()
     {
@@ -58,33 +86,55 @@ public class StageGenerator : MonoBehaviour
             if(obj.StartsWith("#"))
             {                
                 char[] construct = obj.ToCharArray();
+
                 for(int i=0; i < collums; i++)
-                {
+                {                    
+
+                    if(construct[i]=='#' && i == 0 && l==0)
+                        build = Instantiate(m_LowerLeftWall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && (i > 0 && i < collums-1) && l == 0)
+                        build = Instantiate(m_Wall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && i == collums - 1 && l == 0)
+                        build = Instantiate(m_LowerRightWall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && i == 0 && (l > 0 && l < rows-1))
+                        build = Instantiate(m_LeftWall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && i == collums - 1 && (l > 0 && l < rows - 1))
+                        build = Instantiate(m_RightWall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && i == collums-1 && l == rows-1)
+                        build = Instantiate(m_UpperRightWall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && (i > 0 && i < collums-1) && l == rows-1)
+                        build = Instantiate(m_Wall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    else if(construct[i] == '#' && i == 0 && l == rows-1)
+                        build = Instantiate(m_UpperLeftWall, new Vector3(i, l, 0), Quaternion.identity, transform);
+                    
 
                     switch(construct[i])
                     {
-                        case '#':
-                            build = Instantiate(m_Wall, new Vector3(i, l, 0), Quaternion.identity);
-                            break;
                         case '@':
-                            build = Instantiate(m_RewindBlock, new Vector3(i, l, 0), Quaternion.identity);
+                            build = Instantiate(m_RewindBlock, new Vector3(i, l, 0), Quaternion.identity, transform);
+                            break;
+                        case 'B':
+                            build = Instantiate(m_Pumpkin, new Vector3(i, l, 0), Quaternion.identity, transform);
                             break;
                         case 'S':
-                            build = Instantiate(m_Slime, new Vector3(i, l, 0), Quaternion.identity);
+                            build = Instantiate(m_Slime, new Vector3(i, l, 0), Quaternion.identity, transform);
                             break;
                         case 'M':
-                            build = Instantiate(m_Bat, new Vector3(i, l, 0), Quaternion.identity);
+                            build = Instantiate(m_Bat, new Vector3(i, l, 0), Quaternion.identity, transform);
                             break;
                         case 'A':
-                            build = Instantiate(m_Spider, new Vector3(i, l, 0), Quaternion.identity);
+                            build = Instantiate(m_Spider, new Vector3(i, l, 0), Quaternion.identity, transform);
                             break;
                         case 'E':
-                            build = Instantiate(m_Skeleton, new Vector3(i, l, 0), Quaternion.identity);
+                            build = Instantiate(m_Skeleton, new Vector3(i, l, 0), Quaternion.identity, transform);
+                            break;
+                        case 'G':
+                            build = Instantiate(m_Ghost, new Vector3(i, l, 0), Quaternion.identity, transform);
                             break;
                         case 'P':
-                            transform.position = new Vector3(i, l, 0);
+                            build = Instantiate(m_Player, new Vector3(i, l, 0), Quaternion.identity);
                             break;
-                    }                    
+                    }
                 }
                 l++;
             }            
@@ -96,8 +146,27 @@ public class StageGenerator : MonoBehaviour
         {
             for(int j=0; j< collums; j++)
             {
-                ground[i, j] = Instantiate(m_Ground, new Vector3(j, i, 1), Quaternion.identity);
+                if(j==0 && i==0)
+                    ground[i, j] = Instantiate(m_LowerLeftGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if((j > 0 && j < collums - 1) && i == 0)
+                    ground[i, j] = Instantiate(m_LowerGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if(j == collums - 1 && i == 0)
+                    ground[i, j] = Instantiate(m_LowerRightGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if(j == 0 && (i > 0 && i<rows-1))
+                    ground[i, j] = Instantiate(m_LeftGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if(j == collums-1 && (i > 0 && i < rows - 1))
+                    ground[i, j] = Instantiate(m_RightGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if(j == 0  && i == rows-1)
+                    ground[i, j] = Instantiate(m_UpperLeftGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if((j > 0 && j < collums - 1) && i == rows-1)
+                    ground[i, j] = Instantiate(m_UpperGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else if(j == collums - 1 && i == rows-1)
+                    ground[i, j] = Instantiate(m_UpperRightGround, new Vector3(j, i, 0), Quaternion.identity, transform);
+                else
+                    ground[i, j] = Instantiate(m_Ground, new Vector3(j, i, 0), Quaternion.identity, transform);
+              
             }
         }
+       
     }
 }

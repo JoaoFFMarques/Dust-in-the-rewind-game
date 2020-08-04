@@ -7,7 +7,7 @@ public class EnemySeeker : MonoBehaviour, IEnemy
     private Animator m_EnemyAni;
     private SpriteRenderer m_EnemySR;
     private bool m_IsLookingLeft;
-    private PlayerController m_PlayerPos;
+    private GameObject m_PlayerPos;
 
     private Vector3 m_Movement;
     private Vector3 m_Destination;
@@ -27,7 +27,7 @@ public class EnemySeeker : MonoBehaviour, IEnemy
     void Start()
     {
         m_MoveArea.size = new Vector2(m_BoundsSizeX, m_BoundsSizeY);
-        m_PlayerPos = FindObjectOfType<PlayerController>();
+        m_PlayerPos = GameObject.FindGameObjectWithTag("Player");
         m_EnemyAni = GetComponent<Animator>();
         m_EnemySR = GetComponent<SpriteRenderer>();
         StartCoroutine("Walk");
@@ -52,8 +52,6 @@ public class EnemySeeker : MonoBehaviour, IEnemy
             m_IsMoving = false;
             m_Movement.x = 0;
             m_Movement.y = 0;
-
-            Debug.Log((collision.transform.position - m_MoveArea.transform.position).sqrMagnitude);
         }
     }
     private void Rotate()

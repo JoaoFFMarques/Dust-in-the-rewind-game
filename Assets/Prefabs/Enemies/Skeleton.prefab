@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7577106632984214576}
   - component: {fileID: 5543604607393354398}
   - component: {fileID: 2313532304816501440}
+  - component: {fileID: 1757664487107348988}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Harm
@@ -73,10 +74,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -3858430018576183954, guid: 66c8f948aa5361b4b8bd9745f8794561, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 2185152220754121664, guid: a432c217aecd9d041a4505c2941f2d47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.4375, y: 0.96875}
@@ -115,8 +116,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4375, y: 0.96875, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4375, y: 1.478991, z: 0.2}
+  m_Center: {x: 0, y: -0.019624472, z: 0}
 --- !u!114 &2313532304816501440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +137,22 @@ MonoBehaviour:
   m_BoundsSizeY: 4
   m_MoveSpeedy: 1.5
   m_TimetoWalk: 3
+--- !u!54 &1757664487107348988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277122592384754339}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &7577106633001082834
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7577106633001082829
 Transform:
   m_ObjectHideFlags: 0

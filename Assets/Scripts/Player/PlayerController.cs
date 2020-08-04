@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         m_IsTouchUp = Physics.CheckSphere(m_Up.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
         m_IsTouchDown = Physics.CheckSphere(m_Down.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
-        m_IsTouchLeft = Physics.CheckSphere(m_Left.position, 0.3f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
+        m_IsTouchLeft = Physics.CheckSphere(m_Left.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
         m_IsTouchRight = Physics.CheckSphere(m_Right.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
     }
     private void ChangeDirection(Vector2 pos)

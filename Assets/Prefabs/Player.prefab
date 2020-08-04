@@ -140,9 +140,10 @@ MonoBehaviour:
   m_Down: {fileID: 7520542037586019584}
   m_Right: {fileID: 7520542038325170804}
   m_Left: {fileID: 7520542036793593423}
-  m_MoveCount: 0
+  m_MaxDistance: 1
   m_IsRewind: 0
   m_MoveSpeedy: 5
+  m_End: 0
 --- !u!54 &7520542037489703737
 Rigidbody:
   m_ObjectHideFlags: 0

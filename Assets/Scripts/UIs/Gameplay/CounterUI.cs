@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class CounterUI : MonoBehaviour
@@ -9,10 +10,10 @@ public class CounterUI : MonoBehaviour
 
     private void Start()
     {
-        m_Text = GetComponent<Text>();
-        UpdateUI();
+       m_Text = GetComponent<Text>();
+       UpdateUI();
     }
-
+    
     public void Increase(int value)
     {
         m_Value += value;

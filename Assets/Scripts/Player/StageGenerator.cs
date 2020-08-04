@@ -40,7 +40,6 @@ public class StageGenerator : MonoBehaviour
     public float m_Time;
     public int m_Moves;
     public string m_Story;
-
     public TextAsset m_Level;
 
     public static int m_CurrentLevel = 0;
@@ -49,10 +48,11 @@ public class StageGenerator : MonoBehaviour
     {
         m_CurrentLevel++;
         string level = "Level/"+m_CurrentLevel.ToString();
+        
         m_Level = Resources.Load<TextAsset>(level);
-        LoadLevel();
+       // LoadLevel();
     }
-    private void LoadLevel()
+    public void LoadLevel()
     {
         string[] lines = m_Level.text.Split('\n');
         

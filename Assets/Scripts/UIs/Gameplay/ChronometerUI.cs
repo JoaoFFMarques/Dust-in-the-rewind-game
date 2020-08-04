@@ -21,7 +21,6 @@ public class ChronometerUI : MonoBehaviour
     {
         m_MaxTime = maxTime;
         m_ElapsedTime = 0.0f;
-        UpdateUI();
     }
 
     public void Stop()

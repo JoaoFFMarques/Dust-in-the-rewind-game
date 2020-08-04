@@ -23,21 +23,27 @@ public class PlayerController : MonoBehaviour
 
     private bool m_IsLookingUp, m_IsLookingDown, m_isLookingSide;
 
+    private CounterUI m_Counter;
+
     public LayerMask m_ObjectLayer;
     public Transform m_Up, m_Down, m_Right, m_Left;
-    public int m_MoveCount;
+    public int m_MaxDistance;
     public bool m_IsRewind;
-    public float m_MoveSpeedy;  
+    public float m_MoveSpeedy;
+    public bool m_End;
 
     void Start()
     {
+       
         m_PlayerAnim = GetComponent<Animator>();
         m_PlayerRB = GetComponent<Rigidbody>();
         m_PlayerSR = GetComponent<SpriteRenderer>();
         m_RecordedPositions = new Stack<Vector3>();
+        m_Counter = GameObject.FindGameObjectWithTag("Counter").GetComponent<CounterUI>();
 
         Record();
     }
+
     void Update()
     {
         if(!m_IsDead)
@@ -48,9 +54,9 @@ public class PlayerController : MonoBehaviour
                 Control();
         }
 
-        PlayerAnimations();
-       
+        PlayerAnimations();       
     }
+
     private void FixedUpdate()
     {
         if(!m_IsDead)
@@ -62,6 +68,7 @@ public class PlayerController : MonoBehaviour
                 Rewind();
         }        
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Wall") && !m_IsRewind)
@@ -81,13 +88,15 @@ public class PlayerController : MonoBehaviour
             m_IsMoving = false;
         }
     }
+
     private void CheckTouch()
     {
-        m_IsTouchUp = Physics.CheckSphere(m_Up.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
-        m_IsTouchDown = Physics.CheckSphere(m_Down.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
-        m_IsTouchLeft = Physics.CheckSphere(m_Left.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
-        m_IsTouchRight = Physics.CheckSphere(m_Right.position, 0.2f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
+        m_IsTouchUp = Physics.CheckSphere(m_Up.position, 0.1f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
+        m_IsTouchDown = Physics.CheckSphere(m_Down.position, 0.1f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
+        m_IsTouchLeft = Physics.CheckSphere(m_Left.position, 0.1f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
+        m_IsTouchRight = Physics.CheckSphere(m_Right.position, 0.1f, m_ObjectLayer, QueryTriggerInteraction.Ignore);
     }
+
     private void ChangeDirection(Vector2 pos)
     {
         if(pos.y > 0)
@@ -109,6 +118,7 @@ public class PlayerController : MonoBehaviour
             m_isLookingSide = true;
         }
     }
+
     private void ChangeDirectionRewind(Vector2 pos)
     {
         if(pos.y > 0)
@@ -123,16 +133,17 @@ public class PlayerController : MonoBehaviour
         else if(pos.x < 0 && !m_IsLookingLeft)
             Rotate();
     }
+
     private void Control()
     {
         if(Input.GetButton("right") && !m_IsTouchRight)
         {
-            m_Movement.x = 1;
+            m_Movement.x = m_MaxDistance;
             m_IsMoving = true;
         }
         else if(Input.GetButton("left") && !m_IsTouchLeft)
         {
-            m_Movement.x = -1;
+            m_Movement.x = -m_MaxDistance;
             m_IsMoving = true;
         }
         else
@@ -140,12 +151,12 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButton("up") && !m_IsTouchUp)
         {
-            m_Movement.y = 1;
+            m_Movement.y = m_MaxDistance;
             m_IsMoving = true;
         }
         else if(Input.GetButton("down") && !m_IsTouchDown)
         {
-            m_Movement.y = -1;
+            m_Movement.y = -m_MaxDistance;
             m_IsMoving = true;
         }
         else
@@ -155,6 +166,7 @@ public class PlayerController : MonoBehaviour
 
         m_Pos = transform.position + m_Movement;
     }
+
     private void Move()
     {        
         if(m_Movement.x > 0 && m_IsLookingLeft)
@@ -168,18 +180,21 @@ public class PlayerController : MonoBehaviour
         {
             Record();
             m_IsMoving = false;
-            m_MoveCount++;
+            m_Counter.Decrease(m_MaxDistance);
         }
     }   
+
     private void Rotate()
     {    
         m_IsLookingLeft = !m_IsLookingLeft;
         m_PlayerSR.flipX = !m_PlayerSR.flipX;
     }
+
     public void Record()
     {
         m_RecordedPositions.Push(transform.position);
     }
+
     public void Rewind()
     {
         ChangeDirectionRewind(transform.position - m_RecordedPositions.Peek());
@@ -197,6 +212,7 @@ public class PlayerController : MonoBehaviour
             m_Movement.y = 0;
         }
     }
+
     private void PlayerAnimations()
     {
         m_PlayerAnim.SetBool("IsWalking", m_IsMoving);
@@ -205,9 +221,12 @@ public class PlayerController : MonoBehaviour
         m_PlayerAnim.SetBool("IsDown", m_IsLookingDown);
         m_PlayerAnim.SetBool("IsDead", m_IsDead);
     }
+
     public void OnDead()
     {
         gameObject.SetActive(false);
         m_IsDead = false;
+        m_End = true;
+        
     }
 }

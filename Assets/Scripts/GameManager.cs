@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera m_VirtualCamera;
     public float m_MinCamera = 4.0f;
     public float m_MaxCamera = 6.0f;
-    public bool m_AlwaysUseAllTargets = true;
-
+    
     [Header("Camera Player")]
     [Range(0.0f, 10.0f)]
     public float m_PlayerWeight = 2.0f;
@@ -33,11 +32,14 @@ public class GameManager : MonoBehaviour
     public float m_PlayerRadius = 1.0f;
 
     [Header("Camera Portal")]
+    public bool m_UseCenterWithPortal = true;
     [Range(0.0f, 10.0f)]
     public float m_PortalWeight = 2.0f;
     [Range(0.0f, 10.0f)]
     public float m_PortalRadius = 2.0f;
 
+    [Header("Next Level")]
+    public float m_LoadTime = 2.0f;
     private Map m_Map;
 
     private void Start()
@@ -102,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     public void DisableCameraPortal()
     {
-        if (!m_AlwaysUseAllTargets)
+        if (!m_UseCenterWithPortal)
         {
             m_TargetGroup.RemoveMember(m_Portal.transform);
         }
@@ -124,7 +126,30 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        DisablePlayer();
         ScreenManager.Instance.LoadLevel("Gameover");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+            GameOver();
+
+        if (Input.GetKeyDown(KeyCode.V))
+            Victory();
+    }
+
+    public void Victory()
+    {
+        DisablePlayer();
+        m_HintUI.Show("Congratulations!", $"You completed level {m_Map.Level}");
+        m_HintUI.AddListener(delegate{ OnClickVictory(); });
+    }
+
+    private void OnClickVictory()
+    {
+        PlayerPrefs.SetInt("level", m_Map.Level + 1);
+        ScreenManager.Instance.LoadLevelLoading("Gameplay");
     }
 
     public bool HasMovement =>  m_MovesUI.m_Value > 0;
@@ -136,14 +161,12 @@ public class GameManager : MonoBehaviour
 
     public void Loop()
     {
-        Debug.Log(m_Enemies.Count);
         foreach (var enemy in m_Enemies)
             enemy.Move();
     }
 
     public void ShowEnemies()
     {
-        Debug.Log(m_Enemies.Count);
         foreach (var enemy in m_Enemies)
             enemy.Show();
     }

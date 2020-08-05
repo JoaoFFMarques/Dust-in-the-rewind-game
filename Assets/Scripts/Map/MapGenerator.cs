@@ -53,7 +53,7 @@ public class MapGenerator : MonoBehaviour
         {
             for (int j = 1; j < Map.Column - 1; j++)
             {
-                var position = new Vector2(j, i);
+                var position = new Vector2(j, -i);
                 GameObject prefab = null;
 
                 if (Map.Tiles[i,j] == '.')
@@ -64,7 +64,7 @@ public class MapGenerator : MonoBehaviour
                 else
                 {
                     var key = Calculate(i, j);
-                    prefab = m_WallPrefabs[key];
+                    prefab = m_WallPrefabs.ContainsKey(key) ? m_WallPrefabs[key] : m_Grounds[0];
                 }
                 
                 Instantiate(prefab, position, Quaternion.identity, transform);

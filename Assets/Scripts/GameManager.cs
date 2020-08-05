@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,19 +14,26 @@ public class GameManager : MonoBehaviour
 
     [Header("Map")]
     public MapGenerator m_MapGenerator;
-    private PlayerController m_Player;
+    private GameObject m_Player;
+    private GameObject m_Portal;
+    private List<IEnemy> m_Enemies = new List<IEnemy>();
 
     [Header("Camera")]
     public CinemachineTargetGroup m_TargetGroup;
+    [Range(0.0f, 10.0f)]
     public float m_PlayerWeight = 2.0f;
+    [Range(0.0f, 10.0f)]
     public float m_PortalWeight = 1.0f;
+    [Range(0.0f, 10.0f)]
     public float m_PortalRadius = 2.0f;
+    [Range(0.0f, 10.0f)]
     public float m_PlayerRadius = 1.0f;
 
     private Map m_Map;
 
     private void Start()
     {
+        m_Map = m_MapGenerator.Build();
         Initialize();
         SetTargetGroup();
         DisablePlayer();
@@ -34,16 +42,14 @@ public class GameManager : MonoBehaviour
 
     private void SetTargetGroup()
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
-        var portal = GameObject.FindGameObjectWithTag("Portal");
-        m_TargetGroup.AddMember(player.transform, m_PlayerWeight, m_PlayerRadius);
-        m_TargetGroup.AddMember(portal.transform, m_PortalWeight, m_PortalRadius);
+        m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_Portal = GameObject.FindGameObjectWithTag("Portal");
+        m_TargetGroup.AddMember(m_Player.transform, m_PlayerWeight, m_PlayerRadius);
+        m_TargetGroup.AddMember(m_Portal.transform, m_PortalWeight, m_PortalRadius);
     }
 
     private void Initialize()
     {
-        m_Map = m_MapGenerator.Build();
-
         m_ChronometerUI.SetMaxTime(m_Map.Time);
         m_MovesUI.SetValue(m_Map.Moves);
         m_LevelUI.SetValue(m_Map.Level);
@@ -56,20 +62,13 @@ public class GameManager : MonoBehaviour
 
     private void EnablePlayer()
     {
-        if (m_Player)
-            m_Player.enabled = true;
+        m_Player.GetComponent<PlayerController>().enabled = true;
     }
 
     private void DisablePlayer()
     {
         m_PauseUI.enabled = false;
-        var player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player)
-        {
-            m_Player = player.GetComponent<PlayerController>();
-            m_Player.enabled = false;
-        }
+        m_Player.GetComponent<PlayerController>().enabled = false;
     }
 
     public void ShowStory(int level, string message)
@@ -97,12 +96,26 @@ public class GameManager : MonoBehaviour
 
     public bool HasMovement =>  m_MovesUI.m_Value > 0;
 
-    public bool UseMovement()
+    public void UseMovement()
     {
-        if (!HasMovement)
-            return false;
-
         m_MovesUI.Decrease(1);
-        return true;
+    }
+
+    public void Loop()
+    {
+        foreach (var enemy in m_Enemies)
+            enemy.Move();
+    }
+
+    public void ShowEnemies()
+    {
+        foreach (var enemy in m_Enemies)
+            enemy.Show();
+    }
+
+    public void HideEnemies()
+    {
+        foreach (var enemy in m_Enemies)
+            enemy.Hide();
     }
 }

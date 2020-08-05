@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IEnemy
+﻿public interface IEnemy
 {
+    void Show();
+    void Hide();
     void Move();
 }

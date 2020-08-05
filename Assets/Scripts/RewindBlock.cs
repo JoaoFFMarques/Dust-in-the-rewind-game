@@ -2,18 +2,19 @@
 
 public class RewindBlock : MonoBehaviour
 {
-    public GameObject m_Fog;
+    private GameManager m_GameManager;
+
+    private void Start()
+    {
+        m_GameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().m_IsRewind = true;
-            m_Fog.GetComponent<ParticleSystemRenderer>().sortingOrder=-2;
-            var col= m_Fog.GetComponent<ParticleSystem>().colorOverLifetime;
-            col.enabled = true;
-
-            this.GetComponent<Renderer>().sortingOrder = 1;
+            m_GameManager.ShowEnemies();
 
         }
     }

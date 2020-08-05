@@ -302,6 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b608406dc089da4409e1775108c0c09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShadowOffset: {x: 0.1, y: -0.2}
+  m_ShadowOffset: {x: 0.1, y: -0.1}
   m_ShadowScale: {x: 1, y: 0.5}
   m_ShadowMaterial: {fileID: 2100000, guid: be8deb9716118e34daf1c7088063d325, type: 2}

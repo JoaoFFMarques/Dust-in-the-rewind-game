@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
         m_PauseUI.enabled = true;
 
         EnablePlayer();
+        HideEnemies();
     }
 
     public void GameOver()

@@ -5,6 +5,7 @@ public class EnemyRandom : MonoBehaviour, IEnemy
 {
     private Animator m_EnemyAni;
     private SpriteRenderer m_EnemySR;
+    private BoxCollider m_EnemyBC;
     private bool m_IsLookingLeft;
 
     private Vector3 m_Movement;
@@ -23,6 +24,7 @@ public class EnemyRandom : MonoBehaviour, IEnemy
         m_MoveArea.size = new Vector2(m_BoundsSizeX, m_BoundsSizeY);
         m_EnemyAni = GetComponent<Animator>();
         m_EnemySR = GetComponent<SpriteRenderer>();
+        m_EnemyBC = GetComponent<BoxCollider>();
         StartCoroutine("Walk");
     }
     void Update()
@@ -93,6 +95,16 @@ public class EnemyRandom : MonoBehaviour, IEnemy
 
         yield return new WaitForSeconds(m_TimetoWalk);
         StartCoroutine("Walk");
+    }
+
+    public void Hide()
+    {
+        m_EnemyBC.enabled = false;
+    }
+
+    public void Show()
+    {
+        m_EnemyBC.enabled = true;
     }
 
 }

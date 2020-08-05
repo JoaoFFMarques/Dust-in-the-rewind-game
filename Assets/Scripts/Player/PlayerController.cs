@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_Movement;
     private Vector3 m_Pos;
 
+    private GameManager m_GameManager;
+
     private bool m_IsMoving;
     private bool m_IsLookingLeft;
 
@@ -23,8 +25,6 @@ public class PlayerController : MonoBehaviour
 
     private bool m_IsLookingUp, m_IsLookingDown, m_isLookingSide;
 
-    private CounterUI m_Counter;
-
     public LayerMask m_ObjectLayer;
     public Transform m_Up, m_Down, m_Right, m_Left;
     public int m_MaxDistance;
@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-       
+        m_GameManager = FindObjectOfType(typeof (GameManager)) as GameManager;  
         m_PlayerAnim = GetComponent<Animator>();
         m_PlayerRB = GetComponent<Rigidbody>();
         m_PlayerSR = GetComponent<SpriteRenderer>();
         m_RecordedPositions = new Stack<Vector3>();
-        m_Counter = GameObject.FindGameObjectWithTag("Counter").GetComponent<CounterUI>();
+
 
         Record();
     }
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             m_Movement.y = 0;
         }
 
-        if(collision.gameObject.CompareTag("Harm"))
+        if(collision.gameObject.CompareTag("Harm") && m_IsRewind)
         {
             m_IsDead = true;
             m_IsLookingUp = false;
@@ -174,13 +174,16 @@ public class PlayerController : MonoBehaviour
         else if(m_Movement.x < 0 && !m_IsLookingLeft)
             Rotate();
 
-        m_PlayerRB.MovePosition(m_PlayerRB.position + m_Movement * m_MoveSpeedy * Time.fixedDeltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, m_Pos, m_MoveSpeedy * Time.deltaTime);
+        var pos = m_PlayerRB.position + m_Movement;
+
+        m_PlayerRB.MovePosition(transform.position + m_Movement.normalized * m_MoveSpeedy * Time.fixedDeltaTime);
 
         if(transform.position == m_Pos)
         {
             Record();
             m_IsMoving = false;
-            m_Counter.Decrease(m_MaxDistance);
+            m_GameManager.UseMovement();
         }
     }   
 
@@ -227,6 +230,7 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(false);
         m_IsDead = false;
         m_End = true;
+        m_GameManager.GameOver();
         
     }
 }

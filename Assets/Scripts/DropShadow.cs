@@ -3,6 +3,7 @@
 public class DropShadow : MonoBehaviour
 {
     public Vector2 m_ShadowOffset;
+    public Vector2 m_ShadowScale;
     public Material m_ShadowMaterial;
 
     SpriteRenderer m_SpriteRenderer;
@@ -12,7 +13,6 @@ public class DropShadow : MonoBehaviour
     void Start()
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-
         m_ShadowGameobject = new GameObject("Shadow");
 
         m_ShadowSpriteRenderer = m_ShadowGameobject.AddComponent<SpriteRenderer>();
@@ -22,6 +22,7 @@ public class DropShadow : MonoBehaviour
 
         m_ShadowSpriteRenderer.sortingLayerName = m_SpriteRenderer.sortingLayerName;
         m_ShadowSpriteRenderer.sortingOrder = m_SpriteRenderer.sortingOrder - 1;
+        m_ShadowSpriteRenderer.gameObject.transform.localScale = m_ShadowScale;
         m_ShadowGameobject.transform.SetParent(gameObject.transform);
     }
 

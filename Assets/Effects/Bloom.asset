@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 7816463290347112956}
---- !u!114 &7816463290347112956
+  - {fileID: 4327973226094634551}
+--- !u!114 &4327973226094634551
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,13 +44,13 @@ MonoBehaviour:
     value: 65472
   diffusion:
     overrideState: 1
-    value: 5
+    value: 3.81
   anamorphicRatio:
     overrideState: 0
     value: 0
   color:
     overrideState: 0
-    value: {r: 16, g: 16, b: 16, a: 1}
+    value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 1
     value: 0

@@ -28,6 +28,10 @@
 		{
 			"title": "Tools",
 			"people": [ "Piskel", "Unity 2020.1.0f1" ]
+		},
+		{
+			"title": "Acknowledgment",
+			"people": [ "Brackeys Jam 2020.2", "https://itch.io/jam/brackeys-4" ]
 		}
 	]
 }

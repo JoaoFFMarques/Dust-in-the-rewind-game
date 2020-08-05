@@ -396,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 0}
+  m_AnchoredPosition: {x: -50.00006, y: 50}
   m_SizeDelta: {x: 200, y: 110}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &115669216
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0595dfa0d4e7019428b13d550db058ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4a3cc0766f5fd94e981ab00fd42531d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -718,7 +718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: -150}
+  m_AnchoredPosition: {x: 100.00006, y: -100}
   m_SizeDelta: {x: 500, y: 350}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &537558377
@@ -883,7 +883,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -908,7 +908,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 823804073}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevelLoading
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1079,7 +1079,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1104,7 +1104,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 823804073}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevelLoading
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1233,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1368,7 +1368,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1586,7 +1586,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

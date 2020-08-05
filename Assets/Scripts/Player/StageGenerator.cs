@@ -6,8 +6,8 @@ public class StageGenerator : MonoBehaviour
     public GameObject m_Player;
     
     [Header("Ground")]
-    public GameObject m_Ground;
-    public GameObject m_LeftGround;
+    public GameObject m_Ground;             // 0
+    public GameObject m_LeftGround;         
     public GameObject m_RightGround;
     public GameObject m_UpperGround;
     public GameObject m_LowerGround;
@@ -29,12 +29,12 @@ public class StageGenerator : MonoBehaviour
     public GameObject m_RewindBlock;
 
     [Header("Enemies")]
-    public GameObject m_Pumpkin;
-    public GameObject m_Slime;
-    public GameObject m_Bat;
-    public GameObject m_Spider;
-    public GameObject m_Skeleton;
-    public GameObject m_Ghost;    
+    public GameObject m_Pumpkin;    //0 - p
+    public GameObject m_Slime;      //1 - s
+    public GameObject m_Bat;        //2 - b  
+    public GameObject m_Spider;     //3 - a
+    public GameObject m_Skeleton;   //4 - k    
+    public GameObject m_Ghost;      //5 - g
     
     [Header("Level Infos")]
     public float m_Time;

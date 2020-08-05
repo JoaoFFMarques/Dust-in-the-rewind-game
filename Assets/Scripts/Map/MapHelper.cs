@@ -4,7 +4,7 @@ using UnityEngine;
 public class MapHelper : MonoBehaviour
 {
     public static readonly string building = ".#";
-    public static readonly string enemies = "psbakg";
+    public static readonly string enemies = "BSMAEGP";
     public static readonly string others = "@*";
 
     public static Map Load(int levelNumber)

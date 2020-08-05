@@ -8,6 +8,7 @@ TagManager:
   - Harm
   - Counter
   - Portal
+  - Enemy
   layers:
   - Default
   - TransparentFX

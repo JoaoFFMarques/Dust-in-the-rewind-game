@@ -21,15 +21,15 @@ public class GameManager : MonoBehaviour
     public float m_PortalWeight = 1.0f;
     public float m_PortalRadius = 2.0f;
     public float m_PlayerRadius = 1.0f;
-    
-    public Map Map { get; set; }
+
+    private Map m_Map;
 
     private void Start()
     {
         Initialize();
         SetTargetGroup();
         DisablePlayer();
-        ShowStory(Map.Level, Map.Story);
+        ShowStory(m_Map.Level, m_Map.Story);
     }
 
     private void SetTargetGroup()
@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour
 
     private void Initialize()
     {
-        Map = m_MapGenerator.Build();
+        m_Map = m_MapGenerator.Build();
 
-        m_ChronometerUI.SetMaxTime(Map.Time);
-        m_MovesUI.SetValue(Map.Moves);
-        m_LevelUI.SetValue(Map.Level);
+        m_ChronometerUI.SetMaxTime(m_Map.Time);
+        m_MovesUI.SetValue(m_Map.Moves);
+        m_LevelUI.SetValue(m_Map.Level);
 
         m_ChronometerUI.transform.parent.gameObject.SetActive(false);
         m_MovesUI.transform.parent.gameObject.SetActive(false);
@@ -93,5 +93,16 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         ScreenManager.Instance.LoadLevel("Gameover");
+    }
+
+    public bool HasMovement =>  m_MovesUI.m_Value > 0;
+
+    public bool UseMovement()
+    {
+        if (!HasMovement)
+            return false;
+
+        m_MovesUI.Decrease(1);
+        return true;
     }
 }

@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.41176474, g: 0.48235297, b: 0.19215688, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.41176474, g: 0.48235297, b: 0.19215688, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 8403339265182283399}
   - component: {fileID: 8403339265182283392}
   - component: {fileID: 8403339265182283393}
-  - component: {fileID: 8403339265182283398}
+  - component: {fileID: 1998477060}
   m_Layer: 0
   m_Name: LoaderIcon
   m_TagString: Untagged
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2645994038304840517, guid: 1961d14f50d165a439b83d25486b378f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d430868e1b928e14aa87912091b86363, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8403339265182283398
+--- !u!114 &1998477060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,35 +440,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8403339265182283396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725882fc21eaa7c4ebb9b03b6f0909de, type: 3}
+  m_Script: {fileID: 11500000, guid: 6aa1a9d761caa3949b1b1824435327b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RotateAxis: {x: 0, y: 1, z: 0}
-  m_UseContinuous: 1
-  m_Speed: 180
+  m_Sprites:
+  - {fileID: 21300000, guid: d430868e1b928e14aa87912091b86363, type: 3}
+  - {fileID: 21300000, guid: be835e5a6b1bd4c4f8bae80017baebaf, type: 3}
+  - {fileID: 21300000, guid: 02f7073fbaf31f84b90d3b1b6ec706b1, type: 3}
   m_Time: 0.25
-  m_ToAngle: 720
-  m_Curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4

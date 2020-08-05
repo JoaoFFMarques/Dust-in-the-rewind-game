@@ -1,5 +1,6 @@
 ﻿using Cinemachine;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -20,24 +21,44 @@ public class GameManager : MonoBehaviour
 
     [Header("Camera")]
     public CinemachineTargetGroup m_TargetGroup;
+    public CinemachineVirtualCamera m_VirtualCamera;
+    public float m_MinCamera = 4.0f;
+    public float m_MaxCamera = 6.0f;
+    public bool m_AlwaysUseAllTargets = true;
+
+    [Header("Camera Player")]
     [Range(0.0f, 10.0f)]
     public float m_PlayerWeight = 2.0f;
     [Range(0.0f, 10.0f)]
-    public float m_PortalWeight = 1.0f;
+    public float m_PlayerRadius = 1.0f;
+
+    [Header("Camera Portal")]
+    [Range(0.0f, 10.0f)]
+    public float m_PortalWeight = 2.0f;
     [Range(0.0f, 10.0f)]
     public float m_PortalRadius = 2.0f;
-    [Range(0.0f, 10.0f)]
-    public float m_PlayerRadius = 1.0f;
 
     private Map m_Map;
 
     private void Start()
     {
         m_Map = m_MapGenerator.Build();
+        
         Initialize();
         SetTargetGroup();
         DisablePlayer();
+        FindAllEnemies();
+
         ShowStory(m_Map.Level, m_Map.Story);
+    }
+
+    private void FindAllEnemies()
+    {
+        var enemies = Helper.FindAll<IEnemy>();
+        foreach (var enemy in enemies)
+            m_Enemies.Add(enemy);
+
+        HideEnemies();
     }
 
     private void SetTargetGroup()
@@ -46,6 +67,9 @@ public class GameManager : MonoBehaviour
         m_Portal = GameObject.FindGameObjectWithTag("Portal");
         m_TargetGroup.AddMember(m_Player.transform, m_PlayerWeight, m_PlayerRadius);
         m_TargetGroup.AddMember(m_Portal.transform, m_PortalWeight, m_PortalRadius);
+
+        m_VirtualCamera.GetCinemachineComponent<CinemachineGroupComposer>().m_MinimumOrthoSize = m_MinCamera;
+        m_VirtualCamera.GetCinemachineComponent<CinemachineGroupComposer>().m_MaximumOrthoSize = m_MaxCamera;
     }
 
     private void Initialize()
@@ -76,6 +100,14 @@ public class GameManager : MonoBehaviour
         m_HintUI.Show($"Level {level}", message);
     }
 
+    public void DisableCameraPortal()
+    {
+        if (!m_AlwaysUseAllTargets)
+        {
+            m_TargetGroup.RemoveMember(m_Portal.transform);
+        }
+    }
+
     public void HideStory()
     {
         m_HintUI.Hide();
@@ -87,7 +119,7 @@ public class GameManager : MonoBehaviour
         m_PauseUI.enabled = true;
 
         EnablePlayer();
-        HideEnemies();
+        DisableCameraPortal();
     }
 
     public void GameOver()
@@ -104,12 +136,14 @@ public class GameManager : MonoBehaviour
 
     public void Loop()
     {
+        Debug.Log(m_Enemies.Count);
         foreach (var enemy in m_Enemies)
             enemy.Move();
     }
 
     public void ShowEnemies()
     {
+        Debug.Log(m_Enemies.Count);
         foreach (var enemy in m_Enemies)
             enemy.Show();
     }

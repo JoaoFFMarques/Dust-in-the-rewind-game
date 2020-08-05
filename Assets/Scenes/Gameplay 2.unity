@@ -1296,8 +1296,8 @@ GameObject:
   m_Component:
   - component: {fileID: 688725379}
   - component: {fileID: 688725382}
-  - component: {fileID: 688725381}
   - component: {fileID: 688725380}
+  - component: {fileID: 688725381}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_MaximumDistance: 5000
   m_MinimumFOV: 3
   m_MaximumFOV: 60
-  m_MinimumOrthoSize: 4
+  m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &688725382
 MonoBehaviour:
@@ -2764,7 +2764,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2787,7 +2787,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708093451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 5.04871e-29, y: -1.009742e-28, z: 0, w: 1}
   m_LocalPosition: {x: 9.894314, y: 3.2521358, z: -9.994862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3025,10 +3025,14 @@ MonoBehaviour:
   m_ScoreUI: {fileID: 1914427947}
   m_MapGenerator: {fileID: 524832355}
   m_TargetGroup: {fileID: 80131334}
+  m_VirtualCamera: {fileID: 1796969016}
+  m_MinCamera: 4
+  m_MaxCamera: 6
+  m_AlwaysUseAllTargets: 1
   m_PlayerWeight: 2
+  m_PlayerRadius: 2
   m_PortalWeight: 2
   m_PortalRadius: 2
-  m_PlayerRadius: 2
 --- !u!114 &1741105444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3269,7 +3273,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796969015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 5.04871e-29, y: -1.009742e-28, z: 0, w: 1}
   m_LocalPosition: {x: 9.894314, y: 3.2521358, z: -9.994862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

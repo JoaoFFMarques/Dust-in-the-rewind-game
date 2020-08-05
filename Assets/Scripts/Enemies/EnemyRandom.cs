@@ -99,12 +99,12 @@ public class EnemyRandom : MonoBehaviour, IEnemy
 
     public void Hide()
     {
-        m_EnemyBC.enabled = false;
+        //m_EnemyBC.enabled = false;
     }
 
     public void Show()
     {
-        m_EnemyBC.enabled = true;
+        //m_EnemyBC.enabled = true;
     }
 
 }

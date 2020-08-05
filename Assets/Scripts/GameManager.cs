@@ -10,38 +10,54 @@ public class GameManager : MonoBehaviour
     public LevelUI m_LevelUI;
     public ScoreUI m_ScoreUI;
 
-    [Header("Generator")]
-    public StageGenerator m_Generator;
+    [Header("Map")]
+    public MapGenerator m_MapGenerator;
+    private PlayerController m_Player;
 
-
-    public bool m_GameStarts;
-    private GameObject m_Player;
-
-    private int m_CurrentLevel;
+    public Map Map { get; set; }
 
     private void Start()
     {
-        m_Generator.LoadLevel();
-        m_CurrentLevel = StageGenerator.m_CurrentLevel;
-        m_Generator.gameObject.SetActive(false);
-        m_Player = GameObject.FindGameObjectWithTag("Player");
-        m_Player.SetActive(false);
+        Initialize();
+        DisablePlayer();
+        ShowStory(Map.Level, Map.Story);
+    }
+
+    private void Initialize()
+    {
+        Map = m_MapGenerator.Build();
+
+        m_ChronometerUI.SetMaxTime(Map.Time);
+        m_MovesUI.SetValue(Map.Moves);
+        m_LevelUI.SetValue(Map.Level);
+
+        m_ChronometerUI.transform.parent.gameObject.SetActive(false);
+        m_MovesUI.transform.parent.gameObject.SetActive(false);
+        m_LevelUI.transform.parent.gameObject.SetActive(false);
+        m_ScoreUI.transform.parent.gameObject.SetActive(false);
+    }
+
+    private void EnablePlayer()
+    {
+        if (m_Player)
+            m_Player.enabled = true;
+    }
+
+    private void DisablePlayer()
+    {
         m_PauseUI.enabled = false;
-        ShowStory();
-        m_ChronometerUI.SetMaxTime(m_Generator.m_Time);
-        m_MovesUI.m_Value = m_Generator.m_Moves;
-        m_LevelUI.m_Value = StageGenerator.m_CurrentLevel;
+        var player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player)
+        {
+            m_Player = player.GetComponent<PlayerController>();
+            m_Player.enabled = false;
+        }
     }
 
-    private void Update()
+    public void ShowStory(int level, string message)
     {
-        if (m_Player.GetComponent<PlayerController>().m_End)
-            GameOver();
-    }
-
-    public void ShowStory()
-    {
-        m_HintUI.Show("Level"+ m_CurrentLevel, m_Generator.m_Story);
+        m_HintUI.Show($"Level {level}", message);
     }
 
     public void HideStory()
@@ -52,15 +68,13 @@ public class GameManager : MonoBehaviour
         m_MovesUI.transform.parent.gameObject.SetActive(true);
         m_LevelUI.transform.parent.gameObject.SetActive(true);
         m_ScoreUI.transform.parent.gameObject.SetActive(true);
-        m_Generator.gameObject.SetActive(true);
-        m_Player.gameObject.SetActive(true);
         m_PauseUI.enabled = true;
-        m_GameStarts = true;        
+
+        EnablePlayer();
     }
 
     public void GameOver()
     {
         ScreenManager.Instance.LoadLevel("Gameover");
-        m_GameStarts = false;
     }
 }

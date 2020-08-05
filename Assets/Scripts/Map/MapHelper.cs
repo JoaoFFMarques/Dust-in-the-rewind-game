@@ -3,19 +3,10 @@ using UnityEngine;
 
 public class MapHelper : MonoBehaviour
 {
-    public static readonly string building = ".#";
-    public static readonly string enemies = "BSMAEGP";
-    public static readonly string others = "@*";
-
-    public static Map Load(int levelNumber)
+    public static Map Load(int number, string enemyKeys, string otherKeys)
     {
-        return Load($"level_{levelNumber}");
-    }
-
-    public static Map Load(string filename)
-    {
-        TextAsset file = Resources.Load<TextAsset>($"Level/{filename}");
-        Map map = new Map();
+        TextAsset file = Resources.Load<TextAsset>($"Level/{number}");
+        Map map = new Map() { Level = number };
         string[] lines = file.text.Split('\n');
 
         int index = 0;
@@ -24,6 +15,10 @@ public class MapHelper : MonoBehaviour
             if (TryStringByKey(lines[index], "Story", out string story))
             {
                 map.Story = story;
+            }
+            else if (TryStringByKey(lines[index], "File", out string tilemapName))
+            {
+                map.File = tilemapName;
             }
             else if (TryFloatByKey(lines[index], "Time", out float time))
             {
@@ -38,38 +33,47 @@ public class MapHelper : MonoBehaviour
                 string[] size = level.Split(',');
                 int column = int.Parse(size[0]);
                 int row = int.Parse(size[1]);
-                map.Tiles = new char[column, row];
 
-                for (int y = 0; y < row; y++)
+                map.Row = row + 2;
+                map.Column = column + 2;
+                map.Tiles = new char[row + 2, column + 2];
+
+                for (int i = 0; i < map.Row; i++)
+                    for (int j = 0; j < map.Column; j++)
+                        map.Tiles[i, j] = '-';
+
+                for (int i = 0; i < row; i++)
                 {
                     char[] tiles = lines[++index].ToCharArray();
-                    for (int x = 0; x < column; x++)
+                    for (int j = 0; j < column; j++)
                     {
-                        if (enemies.Contains(tiles[column].ToString()))
+                        if (enemyKeys.Contains(tiles[j].ToString()))
                         {
-                            var tile = tiles[column].ToString();
+                            var tile = tiles[j].ToString();
                             if (!map.Enemies.ContainsKey(tile))
                                 map.Enemies.Add(tile, new List<Vector2>());
 
-                            map.Enemies[tile].Add(new Vector2(x, y));
-                            map.Tiles[y, x] = building[0];
+                            map.Enemies[tile].Add(new Vector2(j + 1, i + 1));
+                            map.Tiles[i + 1, j + 1] = '.';
                         }
-                        else if (others.Contains(tiles[column].ToString()))
+                        else if (otherKeys.Contains(tiles[j].ToString()))
                         {
-                            var tile = tiles[column].ToString();
+                            var tile = tiles[j].ToString();
                             if (!map.Others.ContainsKey(tile))
                                 map.Others.Add(tile, new List<Vector2>());
 
-                            map.Others[tile].Add(new Vector2(x, y));
-                            map.Tiles[y, x] = building[0];
+                            map.Others[tile].Add(new Vector2(j + 1, i + 1));
+                            map.Tiles[i + 1, j + 1] = '.';
                         }
                         else
                         {
-                            map.Tiles[y, x] = tiles[column];
+                            map.Tiles[i + 1, j + 1] = tiles[j];
                         }
                     }
                 }
             }
+
+            index++;
         }
 
         return map;

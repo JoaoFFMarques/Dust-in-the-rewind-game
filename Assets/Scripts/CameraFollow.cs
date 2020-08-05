@@ -14,11 +14,13 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
+		/*
 		if(m_Manager.m_GameStarts && !m_Track)
 		{
 			m_Player = GameObject.FindGameObjectWithTag("Player").transform;
 			m_Track = true;
 		}
+		*/
 
 		if(m_Track)
 			TrackPlayer();

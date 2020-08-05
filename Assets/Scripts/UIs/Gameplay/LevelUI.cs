@@ -7,6 +7,12 @@ public class LevelUI : MonoBehaviour
     public string m_Mask = "00";
     private Text m_Text;
 
+    public void SetValue(int value)
+    {
+        m_Value = value;
+        UpdateUI();
+    }
+
     private void Start()
     {
         m_Text = GetComponent<Text>();

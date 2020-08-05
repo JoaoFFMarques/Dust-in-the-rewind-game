@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8010319392016187564}
   m_Layer: 0
   m_Name: RewindBlock
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4971917700309965915
 Transform:
   m_ObjectHideFlags: 0

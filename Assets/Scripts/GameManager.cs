@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,13 +15,29 @@ public class GameManager : MonoBehaviour
     public MapGenerator m_MapGenerator;
     private PlayerController m_Player;
 
+    [Header("Camera")]
+    public CinemachineTargetGroup m_TargetGroup;
+    public float m_PlayerWeight = 2.0f;
+    public float m_PortalWeight = 1.0f;
+    public float m_PortalRadius = 2.0f;
+    public float m_PlayerRadius = 1.0f;
+    
     public Map Map { get; set; }
 
     private void Start()
     {
         Initialize();
+        SetTargetGroup();
         DisablePlayer();
         ShowStory(Map.Level, Map.Story);
+    }
+
+    private void SetTargetGroup()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        var portal = GameObject.FindGameObjectWithTag("Portal");
+        m_TargetGroup.AddMember(player.transform, m_PlayerWeight, m_PlayerRadius);
+        m_TargetGroup.AddMember(portal.transform, m_PortalWeight, m_PortalRadius);
     }
 
     private void Initialize()

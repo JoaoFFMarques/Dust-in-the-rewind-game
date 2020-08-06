@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             m_Movement.y = 0;
         }
 
-        if(collision.gameObject.CompareTag("Harm") && m_IsRewind)
+        if(collision.gameObject.CompareTag("Harm"))
         {
             m_IsDead = true;
             m_IsLookingUp = false;
@@ -173,9 +173,6 @@ public class PlayerController : MonoBehaviour
             Rotate();
         else if(m_Movement.x < 0 && !m_IsLookingLeft)
             Rotate();
-
-        //transform.position = Vector3.MoveTowards(transform.position, m_Pos, m_MoveSpeedy * Time.deltaTime);
-        var pos = m_PlayerRB.position + m_Movement;
 
         m_PlayerRB.MovePosition(transform.position + m_Movement.normalized * m_MoveSpeedy * Time.fixedDeltaTime);
 

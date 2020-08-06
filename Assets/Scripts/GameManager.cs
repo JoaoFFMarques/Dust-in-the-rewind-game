@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public MapGenerator m_MapGenerator;
     private GameObject m_Player;
     private GameObject m_Portal;
-    private List<IEnemy> m_Enemies = new List<IEnemy>();
+    private List<IEnemy> m_EnemyScripts = new List<IEnemy>();
+    private GameObject[] m_Enemies;
 
     [Header("Camera")]
     public CinemachineTargetGroup m_TargetGroup;
@@ -58,7 +59,9 @@ public class GameManager : MonoBehaviour
     {
         var enemies = Helper.FindAll<IEnemy>();
         foreach (var enemy in enemies)
-            m_Enemies.Add(enemy);
+            m_EnemyScripts.Add(enemy);
+
+        m_Enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         HideEnemies();
     }
@@ -161,19 +164,19 @@ public class GameManager : MonoBehaviour
 
     public void Loop()
     {
-        foreach (var enemy in m_Enemies)
+        foreach (var enemy in m_EnemyScripts)
             enemy.Move();
     }
 
     public void ShowEnemies()
     {
         foreach (var enemy in m_Enemies)
-            enemy.Show();
+            enemy.SetActive(true);
     }
 
     public void HideEnemies()
     {
         foreach (var enemy in m_Enemies)
-            enemy.Hide();
+            enemy.SetActive(false);
     }
 }

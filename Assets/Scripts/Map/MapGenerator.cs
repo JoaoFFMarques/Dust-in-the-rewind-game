@@ -53,21 +53,21 @@ public class MapGenerator : MonoBehaviour
         {
             for (int j = 1; j < Map.Column - 1; j++)
             {
-                var position = new Vector2(j, -i);
-                GameObject prefab = null;
+                var position = new Vector2(j, i);
 
                 if (Map.Tiles[i,j] == '.')
                 {
                     var index = Random.Range(0, m_Grounds.Length);
-                    prefab = m_Grounds[index];
-                }
-                else
-                {
-                    var key = Calculate(i, j);
-                    prefab = m_WallPrefabs.ContainsKey(key) ? m_WallPrefabs[key] : m_Grounds[0];
+                    var prefab = m_Grounds[index];
+                    Instantiate(prefab, position, Quaternion.identity, transform);
                 }
                 
-                Instantiate(prefab, position, Quaternion.identity, transform);
+                if (Map.Tiles[i, j] == '#')
+                {
+                    var key = Calculate(i, j);
+                    var prefab = m_WallPrefabs.ContainsKey(key) ? m_WallPrefabs[key] : m_Grounds[0];
+                    Instantiate(prefab, position, Quaternion.identity, transform);
+                }
             }
         }
     }

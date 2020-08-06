@@ -124,15 +124,4 @@ public class EnemySeeker : MonoBehaviour, IEnemy
         yield return new WaitForSeconds(m_TimetoWalk);
         StartCoroutine("Walk");
     }
-
-    public void Hide()
-    {
-        m_EnemyBC.enabled = false;
-    }
-
-    public void Show()
-    {
-        m_EnemyBC.enabled = true;
-    }
-
 }

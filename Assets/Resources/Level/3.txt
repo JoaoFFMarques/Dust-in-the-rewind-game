@@ -1,13 +1,13 @@
 Fase:3
-File:tileset_01.png
 Tile:32
-Story:Dust, você entendeu como esse mundo funciona? Mostre-me do que é capaz!
+Story:Sua jornada começou. Cuidado, monstros podem surgir!
 Time:60
-Moves:9
-Level:20,6
-####################
-#......S......P....#
-#.B.......K........#
-####...#.....@.#####
----#.*.#S....P.#----
----#############----
+Moves:12
+Level:18,7
+...############...
+...#........@.#...
+####..........####
+#........S.......#
+####..........####
+...#.*........#...
+...############...

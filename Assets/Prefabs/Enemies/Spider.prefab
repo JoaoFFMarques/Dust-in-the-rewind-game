@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6131135141501521539}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Harm
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 4982905647728291086}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

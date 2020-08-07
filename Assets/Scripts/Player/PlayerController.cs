@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             m_Movement.y = 0;
         }
 
-        if(collision.gameObject.CompareTag("Harm"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
             m_IsDead = true;
             m_IsLookingUp = false;

@@ -1,0 +1,11 @@
+Fase:4
+Tile:32
+Story:Você se lembra da sua primeira vitória? VEncer a linha do tempo é algo realmente incrível!
+Time:30
+Moves:12
+Level:13,5
+#############
+#.......S...#
+#.*...S...@.#
+#...........#
+#############

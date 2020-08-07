@@ -1088,18 +1088,30 @@ MonoBehaviour:
   - name: Wall Uper Left
     hash:
     - ----##-#-
+    - ----####-
+    - --#-##-#-
+    - --#-####-
     prefab: {fileID: 7147451625142024296, guid: 082f026837ac2d946889f892a2571d45, type: 3}
   - name: Wall Upper Right
     hash:
     - ---##--#-
+    - ---##--##
+    - '#--##--#-'
+    - '#--##--##'
     prefab: {fileID: 4801107554813360759, guid: 02bcdee6fb9f8a2448e89dcdfb83e592, type: 3}
   - name: Wall Lower Left
     hash:
     - -#--##---
+    - '##--##---'
+    - -#--##--#
+    - '##--##--#'
     prefab: {fileID: 5442249759146538013, guid: 4cf4584584d64c842aad7c4ced6f2e26, type: 3}
   - name: Wall Lower Right
     hash:
     - -#-##----
+    - -#-##-#--
+    - -####----
+    - -####-#--
     prefab: {fileID: 4978190731735720770, guid: beceaa15d956d9c43ac34b6a0342b0a7, type: 3}
   - name: Wall Left/Right
     hash:
@@ -1110,6 +1122,14 @@ MonoBehaviour:
     - -#--#-##-
     - '##--#-##-'
     - -##-#--##
+    - '###-#----'
+    - ----#-###
+    - -##-#-##-
+    - '##--#--##'
+    - -##-#----
+    - '##--#----'
+    - ----#-##-
+    - ----#--##
     prefab: {fileID: 3578970754900965960, guid: f54494b40cfc73b4897bf05e2a4091d3, type: 3}
   - name: Wall Upper/Down
     hash:
@@ -1131,10 +1151,14 @@ MonoBehaviour:
   - name: Wall Left T
     hash:
     - -#--##-#-
+    - '##--##-#-'
+    - -#--####-
     prefab: {fileID: 7805906446498445355, guid: 48306488c8b4fca45904004f1309be49, type: 3}
   - name: Wall Right T
     hash:
     - -#-##--#-
+    - -####--#-
+    - -#-##--##
     prefab: {fileID: 4921725957082300158, guid: 64a039b47f05880439fb4e05194d2dd7, type: 3}
   - name: Wall X
     hash:

@@ -44,8 +44,7 @@ public class MapGenerator : MonoBehaviour
     {
         Initialize();
 
-        //var levelNumber = PlayerPrefs.GetInt("level", 1);
-        var levelNumber = 1;
+        var levelNumber = PlayerPrefs.GetInt("level", 1);
         m_Map = MapHelper.Load(levelNumber, m_EnemyKeys, m_OtherKeys);
 
         CreateGroundAndWalls();

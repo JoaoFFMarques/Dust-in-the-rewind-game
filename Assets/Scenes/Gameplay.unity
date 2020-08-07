@@ -1042,42 +1042,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfa9bbfaeb91384fb6061aaf9e673cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Grounds:
-  - {fileID: 5618877711580872746, guid: 9c3c8868dd91d8b438cf41a25588e324, type: 3}
-  m_Wals:
-  - symbol: --###
-    prefab: {fileID: 3053539142080183828, guid: eda41b91544029c4a81df8794530f317, type: 3}
-  - symbol: -###.
-    prefab: {fileID: 7960753892671897248, guid: a72d9104158656b47b524524428ab90c, type: 3}
-  - symbol: -##-#
-    prefab: {fileID: 6604532432603373416, guid: af4f2ac252569a049ae8818189659f18, type: 3}
-  - symbol: '#-#.#'
-    prefab: {fileID: 2099344620981061366, guid: 77853ba33c03a7c49a7be0753dd58b52, type: 3}
-  - symbol: '#.#-#'
-    prefab: {fileID: 8562992635070180589, guid: a161d719cf7c8fb41af9fbc6942b78ba, type: 3}
-  - symbol: '#-##-'
+  m_GroundHash: .........
+  m_WallHash: '#########'
+  m_Tiles:
+  - name: Ground Default
+    hash:
+    - .........
+    prefab: {fileID: 5618877711580872746, guid: 9c3c8868dd91d8b438cf41a25588e324, type: 3}
+  - name: Wall Default
+    hash:
+    - '#########'
+    prefab: {fileID: 3738448181511961263, guid: 26080b922ef51fe4b84dffe5f2826edc, type: 3}
+  - name: Ground Uper Left
+    hash:
+    - ----..-..
     prefab: {fileID: 5762948485002952727, guid: 788cc586cbbbf9d41bcbc3b2144ace45, type: 3}
-  - symbol: .###-
-    prefab: {fileID: 428990138132142686, guid: 2948c519d4b0c8f4a98866df99442470, type: 3}
-  - symbol: '###--'
+  - name: Ground Uper Right
+    hash:
+    - ---..-..-
     prefab: {fileID: 5093756879391602148, guid: 287a7a7ec97830d4fa2da3148943cc12, type: 3}
+  - name: Ground Lower Left
+    hash:
+    - -..-..---
+    prefab: {fileID: 3053539142080183828, guid: eda41b91544029c4a81df8794530f317, type: 3}
+  - name: Ground Lower Right
+    hash:
+    - ..-..----
+    prefab: {fileID: 6604532432603373416, guid: af4f2ac252569a049ae8818189659f18, type: 3}
+  - name: Ground Left
+    hash:
+    - -..-..-..
+    prefab: {fileID: 2099344620981061366, guid: 77853ba33c03a7c49a7be0753dd58b52, type: 3}
+  - name: Ground Right
+    hash:
+    - ..-..-..-
+    prefab: {fileID: 8562992635070180589, guid: a161d719cf7c8fb41af9fbc6942b78ba, type: 3}
+  - name: Ground Upper
+    hash:
+    - ---......
+    prefab: {fileID: 428990138132142686, guid: 2948c519d4b0c8f4a98866df99442470, type: 3}
+  - name: Ground Lower
+    hash:
+    - ......---
+    prefab: {fileID: 7960753892671897248, guid: a72d9104158656b47b524524428ab90c, type: 3}
   m_Enemies:
-  - symbol: B
+  - name: Bat
+    hash:
+    - B
     prefab: {fileID: 1334020368594802118, guid: b0da4a90db0fc98429a7fe2588bed6e3, type: 3}
-  - symbol: G
+  - name: Ghost
+    hash:
+    - G
     prefab: {fileID: 5350181952827529285, guid: 16155746928e3c848855d91fd93cb2a0, type: 3}
-  - symbol: P
+  - name: Pumpkin
+    hash:
+    - P
     prefab: {fileID: 8269956921284563396, guid: 08b15c6e19dc68f47bd0c463a1f2514d, type: 3}
-  - symbol: K
+  - name: Skeleton
+    hash:
+    - K
     prefab: {fileID: 7577106633001082834, guid: 416130724be1cc44b96838f1e5b7208c, type: 3}
-  - symbol: S
+  - name: Slime
+    hash:
+    - S
     prefab: {fileID: 5847173429831002039, guid: 67257c12bc660e44183b877445e48cd5, type: 3}
-  - symbol: A
+  - name: Spyder
+    hash:
+    - A
     prefab: {fileID: 7396241509131567427, guid: 49ff272815580914996a8f3f1b46dd07, type: 3}
   m_Others:
-  - symbol: '*'
+  - name: Player
+    hash:
+    - '*'
     prefab: {fileID: 7520542037489703738, guid: d94a21c5648cb104691c916b02138bcf, type: 3}
-  - symbol: '@'
+  - name: Portal
+    hash:
+    - '@'
     prefab: {fileID: 2372134697819070727, guid: 0a3f6dd0519bf9d4cb8d9f2930f3d0b1, type: 3}
 --- !u!4 &524832356
 Transform:
@@ -2789,7 +2829,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708093451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 5.04871e-29, y: -1.009742e-28, z: 0, w: 1}
   m_LocalPosition: {x: 9.894314, y: 3.2521358, z: -9.994862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3353,7 +3393,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796969015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 5.04871e-29, y: -1.009742e-28, z: 0, w: 1}
   m_LocalPosition: {x: 9.894314, y: 3.2521358, z: -9.994862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

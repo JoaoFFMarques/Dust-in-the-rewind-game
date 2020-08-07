@@ -1085,6 +1085,61 @@ MonoBehaviour:
     hash:
     - ......---
     prefab: {fileID: 7960753892671897248, guid: a72d9104158656b47b524524428ab90c, type: 3}
+  - name: Wall Uper Left
+    hash:
+    - ----##-#-
+    prefab: {fileID: 7147451625142024296, guid: 082f026837ac2d946889f892a2571d45, type: 3}
+  - name: Wall Upper Right
+    hash:
+    - ---##--#-
+    prefab: {fileID: 4801107554813360759, guid: 02bcdee6fb9f8a2448e89dcdfb83e592, type: 3}
+  - name: Wall Lower Left
+    hash:
+    - -#--##---
+    prefab: {fileID: 5442249759146538013, guid: 4cf4584584d64c842aad7c4ced6f2e26, type: 3}
+  - name: Wall Lower Right
+    hash:
+    - -#-##----
+    prefab: {fileID: 4978190731735720770, guid: beceaa15d956d9c43ac34b6a0342b0a7, type: 3}
+  - name: Wall Left/Right
+    hash:
+    - -#--#--#-
+    - -##-#--#-
+    - -#--#--##
+    - '##--#--#-'
+    - -#--#-##-
+    - '##--#-##-'
+    - -##-#--##
+    prefab: {fileID: 3578970754900965960, guid: f54494b40cfc73b4897bf05e2a4091d3, type: 3}
+  - name: Wall Upper/Down
+    hash:
+    - ---###---
+    - ---####--
+    - ---###--#
+    - '#--###---'
+    - --####---
+    - '#-####---'
+    prefab: {fileID: 3738448181511961263, guid: 26080b922ef51fe4b84dffe5f2826edc, type: 3}
+  - name: Wall Upper T
+    hash:
+    - ---###-#-
+    prefab: {fileID: 8606315013533135965, guid: 0a921dc2e7eb95e489ad457a51133c38, type: 3}
+  - name: Wall Lower T
+    hash:
+    - -#-###---
+    prefab: {fileID: 2950992328535237724, guid: 17510c1adb2b7d64eb4fa0f6a80f8191, type: 3}
+  - name: Wall Left T
+    hash:
+    - -#--##-#-
+    prefab: {fileID: 7805906446498445355, guid: 48306488c8b4fca45904004f1309be49, type: 3}
+  - name: Wall Right T
+    hash:
+    - -#-##--#-
+    prefab: {fileID: 4921725957082300158, guid: 64a039b47f05880439fb4e05194d2dd7, type: 3}
+  - name: Wall X
+    hash:
+    - -#-###-#-
+    prefab: {fileID: 7627035512175799508, guid: 962df11c78bab894ebea75d5af90cecd, type: 3}
   m_Enemies:
   - name: Bat
     hash:

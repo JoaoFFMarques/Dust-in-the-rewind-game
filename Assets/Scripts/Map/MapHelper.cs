@@ -1,8 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Data.SqlTypes;
 using UnityEngine;
 
 public class MapHelper : MonoBehaviour
 {
+    public static readonly char EMPTY = '-';
+    public static readonly char GROUND = '.';
+    public static readonly char WALL = '#';
+
     public static Map Load(int number, string enemyKeys, string otherKeys)
     {
         TextAsset file = Resources.Load<TextAsset>($"Level/{number}");
@@ -36,11 +41,17 @@ public class MapHelper : MonoBehaviour
 
                 map.Row = row + 2;
                 map.Column = column + 2;
-                map.Tiles = new char[row + 2, column + 2];
+                map.Grounds = new char[row + 2, column + 2];
+                map.Walls = new char[row + 2, column + 2];
 
                 for (int i = 0; i < map.Row; i++)
+                {
                     for (int j = 0; j < map.Column; j++)
-                        map.Tiles[i, j] = '-';
+                    {
+                        map.Grounds[i, j] = EMPTY;
+                        map.Walls[i, j] = EMPTY;
+                    }
+                }
 
                 for (int i = 0; i < row; i++)
                 {
@@ -54,7 +65,8 @@ public class MapHelper : MonoBehaviour
                                 map.Enemies.Add(tile, new List<Vector2>());
 
                             map.Enemies[tile].Add(new Vector2(j + 1, i + 1));
-                            map.Tiles[i + 1, j + 1] = '.';
+                            map.Grounds[i + 1, j + 1] = GROUND;
+                            map.Walls[i + 1, j + 1] = EMPTY;
                         }
                         else if (otherKeys.Contains(tiles[j].ToString()))
                         {
@@ -63,11 +75,18 @@ public class MapHelper : MonoBehaviour
                                 map.Others.Add(tile, new List<Vector2>());
 
                             map.Others[tile].Add(new Vector2(j + 1, i + 1));
-                            map.Tiles[i + 1, j + 1] = '.';
+                            map.Grounds[i + 1, j + 1] = GROUND;
+                            map.Walls[i + 1, j + 1] = EMPTY;
                         }
-                        else
+                        else if (tiles[j] == GROUND)
                         {
-                            map.Tiles[i + 1, j + 1] = tiles[j];
+                            map.Grounds[i + 1, j + 1] = GROUND;
+                            map.Walls[i + 1, j + 1] = EMPTY;
+                        }
+                        else if (tiles[j] == WALL)
+                        {
+                            map.Grounds[i + 1, j + 1] = GROUND;
+                            map.Walls[i + 1, j + 1] = WALL;
                         }
                     }
                 }

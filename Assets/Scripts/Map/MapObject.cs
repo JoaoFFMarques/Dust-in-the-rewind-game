@@ -3,6 +3,7 @@
 [System.Serializable]
 public class MapObject
 {
-    public string symbol;
+    public string name;
+    public string[] hash;
     public GameObject prefab;
 }

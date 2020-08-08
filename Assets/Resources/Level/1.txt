@@ -1,6 +1,6 @@
 Fase:1
 Tile:32
-Story:Início da jornada, chegue até a luz
+Story:Welcome to the your journey. Reach the rewind symbol.
 Time:60
 Moves:8
 Level:13,5

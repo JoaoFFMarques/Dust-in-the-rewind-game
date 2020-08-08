@@ -1,7 +1,7 @@
 Fase:13
 Story: Feeling trapped in a maze? See it as a way out.
-Time:45
-Moves:80
+Time:50
+Moves:82
 Level:25,12
 ....####################.
 ....#.................C#.

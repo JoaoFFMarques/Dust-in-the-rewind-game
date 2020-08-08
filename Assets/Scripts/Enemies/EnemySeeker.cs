@@ -6,7 +6,6 @@ public class EnemySeeker : MonoBehaviour, IEnemy
 {
     private Animator m_EnemyAni;
     private SpriteRenderer m_EnemySR;
-    private BoxCollider m_EnemyBC;
 
     private bool m_IsLookingLeft;
     private GameObject m_PlayerPos;
@@ -16,7 +15,7 @@ public class EnemySeeker : MonoBehaviour, IEnemy
     private bool m_IsMoving;
 
     private bool m_IsFollow;
-
+    
     public float m_CloseDistance;
 
     public BoxCollider m_MoveArea;
@@ -32,7 +31,6 @@ public class EnemySeeker : MonoBehaviour, IEnemy
         m_PlayerPos = GameObject.FindGameObjectWithTag("Player");
         m_EnemyAni = GetComponent<Animator>();
         m_EnemySR = GetComponent<SpriteRenderer>();
-        m_EnemyBC = GetComponent<BoxCollider>();
         StartCoroutine("Walk");
     }
     void Update()
@@ -41,6 +39,15 @@ public class EnemySeeker : MonoBehaviour, IEnemy
             Rotate();
         else if(m_Movement.x < 0 && !m_IsLookingLeft)
             Rotate();
+
+        if(m_IsFollow)
+        {
+            if(m_PlayerPos.transform.position.x > transform.position.x && m_IsLookingLeft)
+                Rotate();
+            else if(m_PlayerPos.transform.position.x < transform.position.x && !m_IsLookingLeft)
+                Rotate();
+        }
+
 
         Seek();
 

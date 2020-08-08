@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         DisablePlayer();
+        HideEnemies();
         m_HintUI.Show("Congratulations!", $"You completed level {m_Map.Level}");
         m_HintUI.AddListener(delegate{ OnClickVictory(); });
     }

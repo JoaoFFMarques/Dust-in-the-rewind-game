@@ -3506,13 +3506,13 @@ MonoBehaviour:
   m_TargetGroup: {fileID: 80131334}
   m_VirtualCamera: {fileID: 1796969016}
   m_MinCamera: 4
-  m_MaxCamera: 6
+  m_MaxCamera: 20
   m_PlayerWeight: 2
   m_PlayerRadius: 2
   m_UseCenterWithPortal: 1
   m_PortalWeight: 2
   m_PortalRadius: 2
-  m_LoadTime: 2
+  m_FinishLevel: 24
 --- !u!114 &1741105444
 MonoBehaviour:
   m_ObjectHideFlags: 0

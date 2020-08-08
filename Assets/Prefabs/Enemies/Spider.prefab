@@ -131,12 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0310e8b1686a59499ea9a8593147ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CloseDistance: 5
+  m_CloseDistance: 3
   m_MoveArea: {fileID: 7396241508985060072}
   m_MaxDistance: 1
   m_BoundsSizeX: 2
   m_BoundsSizeY: 2
-  m_MoveSpeedy: 1.5
+  m_MoveSpeedy: 0.8
   m_TimetoWalk: 3
 --- !u!54 &6006153147856546606
 Rigidbody:

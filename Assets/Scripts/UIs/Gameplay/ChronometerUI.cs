@@ -10,6 +10,8 @@ public class ChronometerUI : MonoBehaviour
     public bool m_PlayOnAwake = false;
     private bool m_Playing;
 
+    public int RemainingTime => (int)Mathf.Clamp(Mathf.Ceil(m_MaxTime - m_ElapsedTime), 0, m_MaxTime);
+
     private void OnEnable()
     {
         m_Playing = m_PlayOnAwake;
@@ -46,6 +48,6 @@ public class ChronometerUI : MonoBehaviour
 
     private void UpdateUI()
     {
-        m_Text.text = Mathf.Ceil(m_MaxTime - m_ElapsedTime).ToString(m_Mask);
+        m_Text.text = RemainingTime.ToString(m_Mask);
     }
 }

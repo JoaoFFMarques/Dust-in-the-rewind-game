@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public float m_LoadTime = 2.0f;
     private Map m_Map;
 
+    private bool m_Playing;
+
     private void Start()
     {
         m_Map = m_MapGenerator.Build();
@@ -92,12 +94,14 @@ public class GameManager : MonoBehaviour
     private void EnablePlayer()
     {
         m_Player.GetComponent<PlayerController>().enabled = true;
+        m_Playing = true;
     }
 
     private void DisablePlayer()
     {
         m_PauseUI.enabled = false;
         m_Player.GetComponent<PlayerController>().enabled = false;
+        m_Playing = false;
     }
 
     public void ShowStory(int level, string message)
@@ -127,19 +131,18 @@ public class GameManager : MonoBehaviour
         DisableCameraPortal();
     }
 
+    private void Update()
+    {
+        if (m_Playing && m_ChronometerUI.RemainingTime <= 0)
+        {
+            GameOver();
+        }
+    }
+
     public void GameOver()
     {
         DisablePlayer();
         ScreenManager.Instance.LoadLevel("Gameover");
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-            GameOver();
-
-        if (Input.GetKeyDown(KeyCode.V))
-            Victory();
     }
 
     public void Victory()
@@ -151,6 +154,7 @@ public class GameManager : MonoBehaviour
 
     private void OnClickVictory()
     {
+        m_ScoreUI.AddScore(m_MovesUI.m_Value + m_ChronometerUI.RemainingTime);
         PlayerPrefs.SetInt("level", m_Map.Level + 1);
         ScreenManager.Instance.LoadLevelLoading("Gameplay");
     }
@@ -159,7 +163,10 @@ public class GameManager : MonoBehaviour
 
     public void UseMovement()
     {
-        m_MovesUI.Decrease(1);
+        if (m_MovesUI.m_Value == 0)
+            GameOver();
+        else
+            m_MovesUI.Decrease(1);
     }
 
     public void Loop()

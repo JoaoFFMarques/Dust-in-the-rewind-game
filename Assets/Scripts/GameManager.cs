@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public float m_PortalRadius = 2.0f;
 
     [Header("Next Level")]
-    public float m_LoadTime = 2.0f;
+    public int m_FinishLevel = 24;
     private Map m_Map;
 
     private bool m_Playing;
@@ -155,8 +155,16 @@ public class GameManager : MonoBehaviour
     private void OnClickVictory()
     {
         m_ScoreUI.AddScore(m_MovesUI.m_Value + m_ChronometerUI.RemainingTime);
-        PlayerPrefs.SetInt("level", m_Map.Level + 1);
-        ScreenManager.Instance.LoadLevelLoading("Gameplay");
+        var nextLevel = m_Map.Level + 1;
+        if (nextLevel > m_FinishLevel)
+        {
+            ScreenManager.Instance.LoadLevelLoading("Congratulations");
+        } 
+        else
+        {
+            PlayerPrefs.SetInt("level", nextLevel);
+            ScreenManager.Instance.LoadLevelLoading("Gameplay");
+        }
     }
 
     public bool HasMovement =>  m_MovesUI.m_Value > 0;

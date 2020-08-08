@@ -1192,6 +1192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4165824222122287233, guid: 1832e680ae3d2874fa331da655be30a3, type: 3}
+      propertyPath: m_Mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: a4136cc67c172be42a1f15861e1749e7, type: 2}
     - target: {fileID: 4165824222122287234, guid: 1832e680ae3d2874fa331da655be30a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

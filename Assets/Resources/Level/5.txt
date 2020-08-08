@@ -1,6 +1,5 @@
 Fase:5
-Tile:32
-Story:Um grande desafio foi colocado em seu caminho. Não desista!
+Story:A big challenge has been put in your way. Do not give up!
 Time:60
 Moves:20
 Level:20,10

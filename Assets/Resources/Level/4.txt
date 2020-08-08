@@ -1,6 +1,5 @@
 Fase:4
-Tile:32
-Story:Você se lembra da sua primeira vitória? VEncer a linha do tempo é algo realmente incrível!
+Story:Do you remember your first victory? Winning the timeline is really amazing!
 Time:30
 Moves:12
 Level:13,5

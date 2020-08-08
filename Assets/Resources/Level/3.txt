@@ -1,8 +1,6 @@
 Fase:3
-Tile:32
-Story:Sua jornada começou. Cuidado, monstros podem surgir!
+Story:We are at the beginning of your journey. Watch out, monsters can arise.
 Time:60
-<<<<<<< HEAD
 Moves:12
 Level:18,7
 ...############...
@@ -12,15 +10,3 @@ Level:18,7
 ####..........####
 ...#.*........#...
 ...############...
-=======
-Moves:9
-Level:22,8
-......................
-....#############.###.
-.####........#..###.#.
-.#......###.........#.
-.####.*.#.#...###...#.
-....#...#.#.@.#.#####.
-....#####.#####.#.....
-......................
->>>>>>> a1a80e47740d49f3c7e509b8b2eb2c581e0570ca

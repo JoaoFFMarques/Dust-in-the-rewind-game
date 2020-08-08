@@ -1,6 +1,5 @@
 Fase:2
-Tile:32
-Story:Dust, você entendeu como esse mundo funciona? Mostre-me do que é capaz!
+Story:Dust, do you understand how this world works? Show me what you're capable of!
 Time:60
 Moves:15
 Level:15,5

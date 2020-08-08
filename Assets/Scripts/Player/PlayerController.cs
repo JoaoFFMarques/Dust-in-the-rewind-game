@@ -5,10 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     private Stack<Vector3> m_RecordedPositions;
 
-    private Rigidbody m_PlayerRB;
     private Animator m_PlayerAnim;
     private SpriteRenderer m_PlayerSR;
-    private Vector3 m_Movement;
     private Vector3 m_Pos;
 
     private GameManager m_GameManager;
@@ -34,12 +32,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        m_GameManager = FindObjectOfType(typeof (GameManager)) as GameManager;  
+        m_GameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
         m_PlayerAnim = GetComponent<Animator>();
-        m_PlayerRB = GetComponent<Rigidbody>();
         m_PlayerSR = GetComponent<SpriteRenderer>();
         m_RecordedPositions = new Stack<Vector3>();
-
 
         Record();
     }
@@ -50,23 +46,18 @@ public class PlayerController : MonoBehaviour
         {
             CheckTouch();
 
-            if(!m_IsMoving)
-                Control();
+            if(!m_IsRewind)
+            {
+                if(!m_IsMoving)
+                    Control();
+                else
+                    Move();
+            }
+            else
+                Rewind();
         }
 
-        PlayerAnimations();       
-    }
-
-    private void FixedUpdate()
-    {
-        if(!m_IsDead)
-        {
-            if(m_IsMoving)
-                Move();
-
-            if(m_IsRewind)
-                Rewind();
-        }        
+        PlayerAnimations();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -75,8 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             m_IsMoving = false;
             Record();
-            m_Movement.x = 0;
-            m_Movement.y = 0;
+
         }
 
         if(collision.gameObject.CompareTag("Enemy"))
@@ -125,7 +115,7 @@ public class PlayerController : MonoBehaviour
             m_PlayerAnim.Play("Player_Walk_Up");
         else if(pos.y < 0)
             m_PlayerAnim.Play("Player_Walk_Down");
-        else 
+        else
             m_PlayerAnim.Play("Player_Walk_Side");
 
         if(pos.x > 0 && m_IsLookingLeft)
@@ -138,54 +128,48 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButton("right") && !m_IsTouchRight)
         {
-            m_Movement.x = m_MaxDistance;
-            m_IsMoving = true;
+            m_Pos = transform.position + Vector3.right;
+            Moved();
         }
         else if(Input.GetButton("left") && !m_IsTouchLeft)
         {
-            m_Movement.x = -m_MaxDistance;
-            m_IsMoving = true;
+            m_Pos = transform.position + Vector3.left;
+            Moved();
         }
-        else
-            m_Movement.x = 0;
 
         if(Input.GetButton("up") && !m_IsTouchUp)
         {
-            m_Movement.y = m_MaxDistance;
-            m_IsMoving = true;
+            m_Pos = transform.position + Vector3.up;
+            Moved();
         }
         else if(Input.GetButton("down") && !m_IsTouchDown)
         {
-            m_Movement.y = -m_MaxDistance;
-            m_IsMoving = true;
+            m_Pos = transform.position + Vector3.down;
+            Moved();
         }
-        else
-            m_Movement.y = 0;
 
-        ChangeDirection(m_Movement);
-
-        m_Pos = transform.position + m_Movement;
+        ChangeDirection(m_Pos - transform.position);
     }
 
     private void Move()
-    {        
-        if(m_Movement.x > 0 && m_IsLookingLeft)
+    {
+        var X = m_Pos.x - transform.position.x;
+
+        if(X > 0 && m_IsLookingLeft)
             Rotate();
-        else if(m_Movement.x < 0 && !m_IsLookingLeft)
+        else if(X < 0 && !m_IsLookingLeft)
             Rotate();
 
-        m_PlayerRB.MovePosition(transform.position + m_Movement.normalized * m_MoveSpeedy * Time.fixedDeltaTime);
-
+        transform.position = Vector3.MoveTowards(transform.position, m_Pos, m_MoveSpeedy * Time.deltaTime);
+        
         if(transform.position == m_Pos)
         {
-            Record();
             m_IsMoving = false;
-            m_GameManager.UseMovement();
         }
-    }   
+    }
 
     private void Rotate()
-    {    
+    {
         m_IsLookingLeft = !m_IsLookingLeft;
         m_PlayerSR.flipX = !m_PlayerSR.flipX;
     }
@@ -208,8 +192,8 @@ public class PlayerController : MonoBehaviour
         {
             m_IsRewind = false;
             m_IsMoving = false;
-            m_Movement.x = 0;
-            m_Movement.y = 0;
+            PlayerAnimations();
+            m_GameManager.Victory();
         }
     }
 
@@ -222,12 +206,19 @@ public class PlayerController : MonoBehaviour
         m_PlayerAnim.SetBool("IsDead", m_IsDead);
     }
 
+    private void Moved()
+    {
+        m_IsMoving = true;
+        Record();
+        m_GameManager.UseMovement();
+    }
+
     public void OnDead()
     {
         gameObject.SetActive(false);
         m_IsDead = false;
         m_End = true;
         m_GameManager.GameOver();
-        
+
     }
 }

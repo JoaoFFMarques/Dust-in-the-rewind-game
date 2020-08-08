@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ContinueButtonUI : MonoBehaviour
 {
     private Selectable m_Selectable;
-    public string m_Key = "continue";
+    public string m_Key = "level";
     public bool m_UseDelete = true;
 
     private void Awake()
@@ -16,9 +16,10 @@ public class ContinueButtonUI : MonoBehaviour
 
     private void OnEnable()
     {
-        if (m_UseDelete)
+        var hasKey = PlayerPrefs.HasKey(m_Key);
+        m_Selectable.interactable = PlayerPrefs.HasKey(m_Key);
+
+        if (!hasKey && m_UseDelete)
             Destroy(gameObject);
-        else
-            m_Selectable.interactable = PlayerPrefs.HasKey(m_Key);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioListener))]
 [RequireComponent(typeof(AudioSource))]
@@ -23,6 +24,16 @@ public class ThemeManager : MonoBehaviour
     }
 
     private AudioSource m_AudioSource;
+    public AudioMixer m_Mixer;
+
+    private void Start()
+    {
+        var music = PlayerPrefs.GetFloat("musicVolume", 0.0f);
+        var sfx = PlayerPrefs.GetFloat("sfxVolume", 20.0f);
+
+        m_Mixer.SetFloat("musicVolume", music);
+        m_Mixer.SetFloat("sfxVolume", sfx);
+    }
 
     public void ChangeMusic(AudioClip clip, float time)
     {

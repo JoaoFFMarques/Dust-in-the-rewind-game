@@ -1230,8 +1230,8 @@ MonoBehaviour:
   - name: Slime
     hash:
     - S
-    prefab: {fileID: 5847173429831002039, guid: 67257c12bc660e44183b877445e48cd5, type: 3}
-  - name: Spyder
+    prefab: {fileID: 2807509467969463547, guid: 67257c12bc660e44183b877445e48cd5, type: 3}
+  - name: Spider
     hash:
     - A
     prefab: {fileID: 7396241509131567427, guid: 49ff272815580914996a8f3f1b46dd07, type: 3}
@@ -1244,6 +1244,30 @@ MonoBehaviour:
     hash:
     - '@'
     prefab: {fileID: 2372134697819070727, guid: 0a3f6dd0519bf9d4cb8d9f2930f3d0b1, type: 3}
+  - name: Cross
+    hash:
+    - C
+    prefab: {fileID: 2950992328535237724, guid: 78b16d8e249555a45bbb6415c5aadc1d, type: 3}
+  - name: Tomb
+    hash:
+    - T
+    prefab: {fileID: 2950992328535237724, guid: 6b01e3b488408b149a630e167d3e196d, type: 3}
+  - name: TombStone
+    hash:
+    - E
+    prefab: {fileID: 2950992328535237724, guid: 6bc636b8579963d41895b3a742e449ff, type: 3}
+  - name: StoneSingle
+    hash:
+    - N
+    prefab: {fileID: 2950992328535237724, guid: 203bab5e153b3ae40b0fd73d1ad164cf, type: 3}
+  - name: StonesMulti
+    hash:
+    - M
+    prefab: {fileID: 2950992328535237724, guid: a614d3a355b748d41a39598bd90320a8, type: 3}
+  - name: Crypt
+    hash:
+    - Y
+    prefab: {fileID: 2950992328535237724, guid: 50890f71d3ff5f042a8b2414e63e2944, type: 3}
 --- !u!4 &524832356
 Transform:
   m_ObjectHideFlags: 0

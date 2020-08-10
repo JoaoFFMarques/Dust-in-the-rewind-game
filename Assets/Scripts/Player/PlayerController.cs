@@ -20,15 +20,14 @@ public class PlayerController : MonoBehaviour
     private bool m_IsTouchDown;
     private bool m_IsTouchRight;
     private bool m_IsTouchLeft;
+    private bool m_IsRewind;
 
     private bool m_IsLookingUp, m_IsLookingDown, m_isLookingSide;
 
     public LayerMask m_ObjectLayer;
     public Transform m_Up, m_Down, m_Right, m_Left;
     public int m_MaxDistance;
-    public bool m_IsRewind;
     public float m_MoveSpeedy;
-    public bool m_End;
 
     void Start()
     {
@@ -58,6 +57,7 @@ public class PlayerController : MonoBehaviour
         }
 
         PlayerAnimations();
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
             m_IsLookingDown = false;
             m_isLookingSide = true;
         }
+
     }
 
     private void ChangeDirectionRewind(Vector2 pos)
@@ -126,23 +127,23 @@ public class PlayerController : MonoBehaviour
 
     private void Control()
     {
-        if(Input.GetButton("right") && !m_IsTouchRight)
+        if(Input.GetButtonDown("right") && !m_IsTouchRight)
         {
             m_Pos = transform.position + Vector3.right;
             Moved();
         }
-        else if(Input.GetButton("left") && !m_IsTouchLeft)
+        else if(Input.GetButtonDown("left") && !m_IsTouchLeft)
         {
             m_Pos = transform.position + Vector3.left;
             Moved();
         }
 
-        if(Input.GetButton("up") && !m_IsTouchUp)
+        if(Input.GetButtonDown("up") && !m_IsTouchUp)
         {
             m_Pos = transform.position + Vector3.up;
             Moved();
         }
-        else if(Input.GetButton("down") && !m_IsTouchDown)
+        else if(Input.GetButtonDown("down") && !m_IsTouchDown)
         {
             m_Pos = transform.position + Vector3.down;
             Moved();
@@ -191,8 +192,7 @@ public class PlayerController : MonoBehaviour
         if(m_RecordedPositions.Count == 0)
         {
             m_IsRewind = false;
-            m_IsMoving = false;
-            PlayerAnimations();
+            m_IsMoving = false;            
             m_GameManager.Victory();
         }
     }
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
         m_PlayerAnim.SetBool("IsSide", m_isLookingSide);
         m_PlayerAnim.SetBool("IsUp", m_IsLookingUp);
         m_PlayerAnim.SetBool("IsDown", m_IsLookingDown);
-        m_PlayerAnim.SetBool("IsDead", m_IsDead);
+        m_PlayerAnim.SetBool("IsDead", m_IsDead);        
     }
 
     private void Moved()
@@ -217,8 +217,13 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_IsDead = false;
-        m_End = true;
         m_GameManager.GameOver();
 
+    }
+    public void StartRewind()
+    {
+        m_IsRewind = true;
+        m_IsLookingUp = false;
+        m_IsLookingDown = false;
     }
 }

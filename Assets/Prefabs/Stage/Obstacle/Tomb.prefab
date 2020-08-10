@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3278160193789424923}
   - component: {fileID: 7162760335786064039}
-  - component: {fileID: 1045506950625907694}
   - component: {fileID: 1737119045642052405}
+  - component: {fileID: 1474068829500831678}
   m_Layer: 8
   m_Name: Tomb
   m_TagString: Wall
@@ -84,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &1045506950625907694
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950992328535237724}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.79872406, y: 0.9651215, z: 1}
-  m_Center: {x: -0.004025519, y: 0.020368218, z: -0.4999888}
 --- !u!114 &1737119045642052405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +99,16 @@ MonoBehaviour:
   m_ShadowOffset: {x: 0.1, y: -0.2}
   m_ShadowScale: {x: 1, y: 0.5}
   m_ShadowMaterial: {fileID: 2100000, guid: be8deb9716118e34daf1c7088063d325, type: 2}
+--- !u!65 &1474068829500831678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950992328535237724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

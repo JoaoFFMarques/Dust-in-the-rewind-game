@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4470311553156067312}
   - component: {fileID: 9185357678267319206}
-  - component: {fileID: 2240820461407440106}
   - component: {fileID: 7760392765503127229}
+  - component: {fileID: -6440689691141101399}
   m_Layer: 8
   m_Name: Wall
   m_TagString: Wall
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3738448181511961263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &2240820461407440106
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3738448181511961263}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.7679031, z: 1}
-  m_Center: {x: 0, y: -0.09275234, z: -0.4999888}
 --- !u!114 &7760392765503127229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +99,16 @@ MonoBehaviour:
   m_ShadowOffset: {x: 0.1, y: -0.2}
   m_ShadowScale: {x: 1, y: 0.5}
   m_ShadowMaterial: {fileID: 2100000, guid: be8deb9716118e34daf1c7088063d325, type: 2}
+--- !u!65 &-6440689691141101399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738448181511961263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

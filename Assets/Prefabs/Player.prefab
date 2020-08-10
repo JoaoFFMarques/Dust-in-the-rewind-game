@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520542036793593424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2037282, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children: []
   m_Father: {fileID: 7520542037489703735}
@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 7520542037489703734}
   - component: {fileID: 7520542037489703737}
   - component: {fileID: 7520542037489703733}
-  - component: {fileID: 7520542037489703732}
   - component: {fileID: 8267549910408420691}
+  - component: {fileID: 7603700569697783058}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520542037489703738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2362719, y: 1.3694296, z: -0}
+  m_LocalPosition: {x: -2.249, y: 1.3694296, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_Children:
   - {fileID: 7520542038384071170}
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.688256, y: 14.6875}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,6 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91670c5851bea941905e680465d5f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IddleUp: {fileID: -1347660497667953576, guid: cd2520eeb4bac2a419fba8326c9ffcb6, type: 3}
+  m_IddleDown: {fileID: 685876922332993412, guid: 10b2b9c776d50234d8e8b699eba7069c, type: 3}
+  m_IdleSide: {fileID: 5914726534828980230, guid: be6b6a661b1c06e45a118785b93c065a, type: 3}
   m_ObjectLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -179,19 +182,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &7520542037489703732
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520542037489703738}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4027455, y: 0.5310061, z: 4.2173247}
-  m_Center: {x: -0.0050154924, y: 0.039580584, z: -1.6086612}
 --- !u!114 &8267549910408420691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +197,19 @@ MonoBehaviour:
   m_ShadowOffset: {x: 0.1, y: -0.2}
   m_ShadowScale: {x: 1, y: 0.5}
   m_ShadowMaterial: {fileID: 2100000, guid: be8deb9716118e34daf1c7088063d325, type: 2}
+--- !u!65 &7603700569697783058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7520542037489703738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7520542037586019585
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520542037586019585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.43942958, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children: []
   m_Father: {fileID: 7520542037489703735}
@@ -261,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520542038325170805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1962719, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children: []
   m_Father: {fileID: 7520542037489703735}
@@ -291,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520542038384071171}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48057032, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children: []
   m_Father: {fileID: 7520542037489703735}
